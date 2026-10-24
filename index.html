@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalkulator Strefy Płatnego Parkowania (SPP) Łódź 2026 + Generator Odwołania od Opłaty Dodatkowej 300 zł (ZDiT)</title>
+<meta name="description" content="Kalkulator SPP Łódź 2026: koszt postoju w podstrefach A, B i C co do minuty, stawki Łodzianina i przyjezdnego, koszt miesięczny i roczny, opłacalność abonamentu mieszkańca 365 zł. Generator wniosku PDF do ZDiT w sprawie opłaty dodatkowej 300 zł.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1d4ed8">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Kalkulator SPP Łódź 2026 + wniosek do ZDiT w sprawie opłaty dodatkowej 300 zł">
+<meta property="og:description" content="Policz dokładny koszt parkowania w Strefie Płatnego Parkowania w Łodzi i przygotuj wniosek PDF do ZDiT w sprawie opłaty dodatkowej 300 zł.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d4ed8'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='700'%3EP%3C/text%3E%3C/svg%3E">
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.18/dist/index.global.js"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --color-brand-50: #eff6ff;
+    --color-brand-100: #dbeafe;
+    --color-brand-600: #2563eb;
+    --color-brand-700: #1d4ed8;
+    --color-brand-800: #1e40af;
+    --color-brand-900: #1e3a8a;
+  }
+  @layer components {
+    .field { @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-xs focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-100; }
+    .field[aria-invalid="true"] { @apply border-red-500 ring-2 ring-red-100; }
+    .lbl { @apply mb-1 block text-sm font-medium text-slate-700; }
+    .hint { @apply mt-1 text-xs text-slate-500; }
+    .seg { @apply flex cursor-pointer items-center justify-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-center text-sm font-medium text-slate-700 transition hover:border-brand-600 has-checked:border-brand-700 has-checked:bg-brand-700 has-checked:text-white has-focus-visible:ring-2 has-focus-visible:ring-brand-600 has-focus-visible:ring-offset-2; }
+    .card { @apply rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6; }
+    .stat { @apply rounded-xl border border-slate-200 bg-slate-50 p-4; }
+    .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50; }
+    .btn-primary { @apply bg-brand-700 text-white hover:bg-brand-800 focus-visible:ring-brand-600; }
+    .btn-ghost { @apply border border-slate-300 bg-white text-slate-800 hover:bg-slate-50 focus-visible:ring-brand-600; }
+  }
+</style>
+<style>
+  html { scroll-behavior: smooth; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  .paper { font-family: Georgia, "Times New Roman", serif; }
+  .blurred { filter: blur(3.5px); user-select: none; pointer-events: none; }
+  dialog::backdrop { background: rgb(15 23 42 / 0.6); }
+  details > summary { list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .chev { transform: rotate(180deg); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kalkulator Strefy Płatnego Parkowania (SPP) Łódź 2026 + Generator wniosku w sprawie opłaty dodatkowej 300 zł (ZDiT)",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Dowolny (przeglądarka internetowa)",
+  "inLanguage": "pl-PL",
+  "isAccessibleForFree": true,
+  "description": "Kalkulator kosztów parkowania w Strefie Płatnego Parkowania w Łodzi (podstrefy A, B, C) z naliczaniem co do minuty, prognozą miesięczną i roczną, porównaniem stawki Łodzianina i przyjezdnego oraz abonamentu mieszkańca 365 zł, a także generator wniosku PDF do Zarządu Dróg i Transportu w Łodzi w sprawie opłaty dodatkowej 300 zł. Działa w całości w przeglądarce.",
+  "spatialCoverage": { "@type": "Place", "name": "Łódź, Polska" },
+  "featureList": [
+    "Koszt pojedynczego postoju w podstrefach A, B i C z rozbiciem na godziny i minuty",
+    "Automatyczne pomijanie godzin poza 7:00–19:00, weekendów i świąt ustawowych",
+    "Zwolnienie pojazdów elektrycznych (BEV)",
+    "Prognoza kosztu miesięcznego i rocznego",
+    "Różnica między stawką Łodzianina a stawką przyjezdnego",
+    "Porównanie z abonamentem mieszkańca strefy 365 zł rocznie",
+    "Generator wniosku PDF do ZDiT Łódź w sprawie opłaty dodatkowej 300 zł z listą załączników i terminem 14 dni"
+  ],
+  "offers": [
+    { "@type": "Offer", "name": "Kalkulator kosztów parkowania SPP Łódź", "price": "0", "priceCurrency": "PLN" },
+    { "@type": "Offer", "name": "Wniosek PDF do ZDiT Łódź w sprawie opłaty dodatkowej", "price": "9.99", "priceCurrency": "PLN" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "W jakich godzinach obowiązuje Strefa Płatnego Parkowania w Łodzi w 2026 roku?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Od poniedziałku do piątku w godzinach 7:00–19:00. W soboty, niedziele i święta ustawowo wolne od pracy postój jest bezpłatny." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile kosztuje parkowanie w podstrefach A, B i C w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Podstrefa A: Łodzianin 6,00 zł / 7,20 zł / 8,60 zł za 1., 2. i 3. godzinę oraz 6,00 zł za 4. i każdą kolejną; przyjezdny 6,90 zł / 8,20 zł / 9,80 zł oraz 6,90 zł. Podstrefy B i C: Łodzianin 5,00 zł / 6,00 zł / 7,20 zł oraz 5,00 zł; przyjezdny 6,00 zł / 7,20 zł / 8,60 zł oraz 6,00 zł." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kto płaci w łódzkiej SPP stawkę Łodzianina?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pojazdy z tablicami rejestracyjnymi EL oraz pojazdy zgłoszone do Zarządu Dróg i Transportu w Łodzi przez mieszkańców Łodzi korzystających z innych tablic, np. samochody w leasingu zarejestrowane poza Łodzią. Pozostali kierowcy płacą stawkę dla przyjezdnych." }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy samochody elektryczne płacą za parkowanie w SPP w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nie. Pojazdy elektryczne w rozumieniu art. 2 pkt 12 ustawy z dnia 11 stycznia 2018 r. o elektromobilności i paliwach alternatywnych są zwolnione z opłat za postój w strefie płatnego parkowania na podstawie art. 13 ust. 3 ustawy o drogach publicznych. Hybrydy, w tym hybrydy plug-in, płacą." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile wynosi opłata dodatkowa za brak biletu w SPP w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "300 zł. Opłata dodatkowa powstaje z mocy prawa, gdy postój nie zostanie opłacony albo opłacony czas zostanie przekroczony. Termin zapłaty wynosi 14 dni." }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak odwołać się od opłaty dodatkowej 300 zł w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Po otrzymaniu raportu z kontroli można złożyć do Zarządu Dróg i Transportu w Łodzi (ul. J. Tuwima 36, 90-002 Łódź) wniosek o wyjaśnienie powstania opłaty dodatkowej, listownie, w kancelarii lub przez e-Doręczenia. Nie jest to tryb odwoławczy: według Urzędu Miasta Łodzi od odpowiedzi ZDiT nie przysługuje dalsza droga odwoławcza, a zarzuty można wnieść dopiero na etapie egzekucji administracyjnej." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile kosztuje abonament mieszkańca strefy w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "365 zł za rok, czyli 1 zł dziennie. Abonament jest przeznaczony dla mieszkańców obszaru Strefy Płatnego Parkowania; warunki określa uchwała Rady Miejskiej w Łodzi i regulamin ZDiT." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile mam czasu na opłacenie postoju po zaparkowaniu w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Opłatę wnosi się niezwłocznie, nie później niż w ciągu 5 minut od zaparkowania." }
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="bg-slate-100 font-sans text-slate-900 antialiased">
+
+<header class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3" aria-label="Główna nawigacja">
+    <a href="#" class="flex items-center gap-2 font-bold text-slate-900">
+      <span class="grid h-8 w-8 place-items-center rounded-md bg-brand-700 text-lg font-extrabold text-white" aria-hidden="true">P</span>
+      <span class="hidden sm:inline">SPP Łódź 2026</span>
+    </a>
+    <div class="ml-auto flex gap-1 overflow-x-auto text-sm font-medium">
+      <a class="whitespace-nowrap rounded-md px-3 py-1.5 text-slate-700 hover:bg-slate-100" href="#kalkulator">Kalkulator</a>
+      <a class="whitespace-nowrap rounded-md px-3 py-1.5 text-slate-700 hover:bg-slate-100" href="#stawki">Stawki</a>
+      <a class="whitespace-nowrap rounded-md px-3 py-1.5 text-slate-700 hover:bg-slate-100" href="#wniosek">Opłata 300 zł</a>
+      <a class="whitespace-nowrap rounded-md px-3 py-1.5 text-slate-700 hover:bg-slate-100" href="#faq">FAQ</a>
+    </div>
+  </nav>
+</header>
+
+<main class="mx-auto max-w-6xl px-4 pb-16">
+
+  <!-- HERO -->
+  <section class="py-8 sm:py-12">
+    <h1 class="text-2xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+      Kalkulator Strefy Płatnego Parkowania (SPP) Łódź 2026
+      <span class="block text-brand-700">+ Generator odwołania od opłaty dodatkowej 300 zł (ZDiT)</span>
+    </h1>
+    <p class="mt-4 max-w-3xl text-slate-600">
+      Policz co do minuty koszt postoju w podstrefach A, B i C, sprawdź, ile kosztuje Cię brak statusu Łodzianina,
+      i porównaj wydatki z abonamentem mieszkańca. Jeśli dostałeś raport z kontroli z opłatą dodatkową 300 zł, przygotuj
+      wniosek do Zarządu Dróg i Transportu w Łodzi w formacie PDF. Wszystkie obliczenia działają w przeglądarce, a dane
+      z formularzy nie są nigdzie wysyłane.
+    </p>
+    <ul class="mt-6 flex flex-wrap gap-2 text-sm">
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Pn–Pt <strong>7:00–19:00</strong></li>
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Weekendy i święta: <strong>0 zł</strong></li>
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Elektryki (BEV): <strong>0 zł</strong></li>
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Opłata dodatkowa: <strong>300 zł / 14 dni</strong></li>
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Abonament mieszkańca: <strong>365 zł / rok</strong></li>
+    </ul>
+  </section>
+
+  <!-- FEATURE 1: CALCULATOR -->
+  <section id="kalkulator" class="scroll-mt-20" aria-labelledby="calc-h">
+    <h2 id="calc-h" class="text-xl font-bold sm:text-2xl">Precyzyjny kalkulator postoju i abonamentu SPP Łódź</h2>
+    <div class="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-5">
+
+      <form id="calcForm" class="card space-y-5 lg:col-span-2" novalidate>
+        <fieldset>
+          <legend class="lbl">Podstrefa</legend>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="seg"><input class="sr-only" type="radio" name="zone" value="A" checked>A</label>
+            <label class="seg"><input class="sr-only" type="radio" name="zone" value="B">B</label>
+            <label class="seg"><input class="sr-only" type="radio" name="zone" value="C">C</label>
+          </div>
+          <p id="zoneDesc" class="hint"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend class="lbl">Status kierowcy</legend>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="seg"><input class="sr-only" type="radio" name="status" value="lodzianin" checked>Łodzianin (EL / ZDiT)</label>
+            <label class="seg"><input class="sr-only" type="radio" name="status" value="przyjezdny">Przyjezdny / leasing</label>
+          </div>
+          <p class="hint">„Przyjezdny” obejmuje też auta mieszkańców Łodzi na obcych tablicach (np. leasing WE, DW, PO), które nie zostały zgłoszone do ZDiT.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend class="lbl">Napęd</legend>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="seg"><input class="sr-only" type="radio" name="engine" value="ice" checked>Spalinowy / hybryda</label>
+            <label class="seg"><input class="sr-only" type="radio" name="engine" value="bev">Elektryczny (BEV)</label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label class="lbl" for="parkDate">Dzień postoju</label>
+          <input class="field" type="date" id="parkDate">
+          <p class="hint">Soboty, niedziele i święta ustawowe są wykrywane automatycznie.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="lbl" for="tStart">Początek postoju</label>
+            <input class="field tnum" type="time" id="tStart" value="08:00" step="60">
+          </div>
+          <div>
+            <label class="lbl" for="tEnd">Koniec postoju</label>
+            <input class="field tnum" type="time" id="tEnd" value="16:00" step="60">
+          </div>
+        </div>
+        <p class="hint -mt-3">Czas przed 7:00 i po 19:00 jest pomijany.</p>
+
+        <div>
+          <label class="lbl" for="days">Dni parkowania w miesiącu: <span id="daysOut" class="tnum font-bold text-brand-700">20</span></label>
+          <input class="w-full accent-brand-700" type="range" id="days" min="1" max="22" value="20">
+          <div class="flex justify-between text-xs text-slate-500"><span>1</span><span>22</span></div>
+        </div>
+      </form>
+
+      <div class="space-y-6 lg:col-span-3" aria-live="polite">
+        <p id="calcError" class="hidden rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800" role="alert"></p>
+
+        <div class="card">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <p class="text-sm font-medium text-slate-500">Koszt pojedynczego postoju</p>
+              <p id="stayTotal" class="tnum text-4xl font-extrabold tracking-tight">0,00 zł</p>
+              <p id="stayMeta" class="mt-1 text-sm text-slate-600"></p>
+            </div>
+            <span id="dayBadge" class="rounded-full px-3 py-1 text-xs font-semibold"></span>
+          </div>
+          <div class="mt-4 overflow-x-auto">
+            <table class="w-full whitespace-nowrap text-left text-sm">
+              <thead class="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-500">
+                <tr><th class="py-2 pr-3">Godz.</th><th class="py-2 pr-3">Przedział</th><th class="py-2 pr-3 text-right">Minuty</th><th class="hidden py-2 pr-3 text-right sm:table-cell">Stawka</th><th class="py-2 text-right">Kwota</th></tr>
+              </thead>
+              <tbody id="breakdown" class="tnum divide-y divide-slate-100"></tbody>
+            </table>
+          </div>
+          <p class="hint">Niepełna godzina jest liczona proporcjonalnie do minut. Aplikacje i parkomaty mogą stosować minimalny czas postoju oraz własne zaokrąglenia.</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div class="stat"><p class="text-xs font-medium text-slate-500">Dzień roboczy</p><p id="perDay" class="tnum text-xl font-bold">0,00 zł</p></div>
+          <div class="stat"><p class="text-xs font-medium text-slate-500">Miesiąc (<span id="daysOut2">20</span> dni)</p><p id="monthly" class="tnum text-xl font-bold">0,00 zł</p></div>
+          <div class="stat"><p class="text-xs font-medium text-slate-500">Rok (12 miesięcy)</p><p id="annual" class="tnum text-xl font-bold">0,00 zł</p></div>
+        </div>
+
+        <div id="lossCard" class="card border-amber-300 bg-amber-50">
+          <h3 class="font-bold text-amber-900">Ile tracisz na braku statusu Łodzianina (tablice spoza Łodzi, np. leasing WE/DW/PO)</h3>
+          <p id="lossLead" class="mt-1 text-sm text-amber-900"></p>
+          <div class="mt-3 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-lg bg-white/70 p-3"><p class="text-xs text-amber-800">Dziennie</p><p id="lossDay" class="tnum text-lg font-bold text-amber-950">0,00 zł</p></div>
+            <div class="rounded-lg bg-white/70 p-3"><p class="text-xs text-amber-800">Miesięcznie</p><p id="lossMonth" class="tnum text-lg font-bold text-amber-950">0,00 zł</p></div>
+            <div class="rounded-lg bg-white/70 p-3"><p class="text-xs text-amber-800">Rocznie</p><p id="lossYear" class="tnum text-lg font-bold text-amber-950">0,00 zł</p></div>
+          </div>
+          <p class="mt-3 text-xs text-amber-900">Mieszkaniec Łodzi z tablicami innymi niż EL (np. auto w leasingu) może zgłosić pojazd do ZDiT, aby płacić stawkę Łodzianina. Warunki i wymagane dokumenty określa ZDiT.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="font-bold">Abonament mieszkańca strefy: 365 zł / rok</h3>
+          <p id="aboLead" class="mt-1 text-sm text-slate-600"></p>
+          <div class="mt-3 grid gap-3 sm:grid-cols-3">
+            <div class="stat"><p class="text-xs text-slate-500">Bilety w roku</p><p id="aboTickets" class="tnum text-lg font-bold">0,00 zł</p></div>
+            <div class="stat"><p class="text-xs text-slate-500">Abonament</p><p class="tnum text-lg font-bold">365,00 zł</p></div>
+            <div class="stat"><p class="text-xs text-slate-500">Oszczędność z abonamentem</p><p id="aboDiff" class="tnum text-lg font-bold">0,00 zł</p></div>
+          </div>
+          <p id="aboBreak" class="mt-3 text-sm font-medium"></p>
+          <p class="hint">Abonament mieszkańca jest przeznaczony wyłącznie dla mieszkańców obszaru SPP i obowiązuje na zasadach z uchwały Rady Miejskiej w Łodzi oraz regulaminu ZDiT. Sprawdź, czy obejmuje miejsce, w którym parkujesz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATE TABLE -->
+  <section id="stawki" class="scroll-mt-20 pt-12" aria-labelledby="rates-h">
+    <h2 id="rates-h" class="text-xl font-bold sm:text-2xl">Stawki SPP Łódź 2026</h2>
+    <p class="mt-2 max-w-3xl text-sm text-slate-600">Opłata progresywna za 1., 2. i 3. godzinę, a od 4. godziny powrót do stawki za pierwszą godzinę. Dla postoju trwającego co najmniej 3 godziny koszt dzienny wynosi C(h) = r₁ + r₂ + r₃ + (h − 3) · r₄, gdzie r₄ = r₁.</p>
+    <div class="card mt-4 overflow-x-auto p-0 sm:p-0">
+      <table class="w-full min-w-[640px] text-left text-sm">
+        <thead class="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+          <tr>
+            <th class="px-4 py-3">Podstrefa</th><th class="px-4 py-3">Status</th>
+            <th class="px-4 py-3 text-right">1. godz.</th><th class="px-4 py-3 text-right">2. godz.</th><th class="px-4 py-3 text-right">3. godz.</th>
+            <th class="px-4 py-3 text-right">Suma 3 h</th><th class="px-4 py-3 text-right">4. i kolejna</th><th class="px-4 py-3 text-right">12 h (7–19)</th>
+          </tr>
+        </thead>
+        <tbody id="rateTable" class="tnum divide-y divide-slate-100"></tbody>
+      </table>
+    </div>
+    <dl class="mt-4 grid gap-3 text-sm sm:grid-cols-3">
+      <div class="card p-4 sm:p-4"><dt class="font-semibold">Podstrefa A</dt><dd class="text-slate-600">Ścisłe centrum: ul. Piotrkowska, Park Moniuszki, Galeria Łódzka.</dd></div>
+      <div class="card p-4 sm:p-4"><dt class="font-semibold">Podstrefa B</dt><dd class="text-slate-600">Pozostałe Śródmieście, Radiostacja, okolice Orientarium ZOO i Aquaparku Fala.</dd></div>
+      <div class="card p-4 sm:p-4"><dt class="font-semibold">Podstrefa C</dt><dd class="text-slate-600">Bałucki Rynek.</dd></div>
+    </dl>
+    <p class="hint">Dokładne granice podstref wyznacza mapa ZDiT i oznakowanie D-44 na miejscu.</p>
+  </section>
+
+  <!-- AD SLOT -->
+  <aside class="mt-12 rounded-2xl border-2 border-dashed border-slate-300 bg-white p-6 text-center" aria-label="Reklama">
+    <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">Reklama</p>
+    <p class="mt-2 text-lg font-bold">Prywatne parkingi strzeżone i abonamentowe w centrum Łodzi</p>
+    <p class="mx-auto mt-1 max-w-xl text-sm text-slate-600">Prowadzisz parking strzeżony lub oferujesz miejsca w abonamencie miesięcznym w centrum Łodzi? To miejsce widzą kierowcy, którzy właśnie policzyli swój roczny koszt SPP.</p>
+    <a id="adLink" class="btn btn-ghost mt-4" href="#">Zarezerwuj to miejsce</a>
+  </aside>
+
+  <!-- FEATURE 2: APPEAL GENERATOR -->
+  <section id="wniosek" class="scroll-mt-20 pt-12" aria-labelledby="appeal-h">
+    <h2 id="appeal-h" class="text-xl font-bold sm:text-2xl">Generator reklamacji / odwołania od opłaty dodatkowej 300 zł (ZDiT Łódź)</h2>
+    <div class="mt-3 max-w-4xl rounded-xl border border-brand-100 bg-brand-50 p-4 text-sm text-brand-900">
+      Formalnie jest to <strong>wniosek o wyjaśnienie powstania opłaty dodatkowej</strong> kierowany do Zarządu Dróg i Transportu w Łodzi.
+      Według Urzędu Miasta Łodzi nie jest to tryb odwoławczy i od odpowiedzi ZDiT nie przysługuje dalsza droga odwoławcza;
+      zarzuty można wnieść dopiero na etapie egzekucji, po doręczeniu odpisu tytułu wykonawczego. Wniosek najlepiej złożyć
+      bezpośrednio po otrzymaniu raportu z kontroli. Generator nie jest poradą prawną.
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-5">
+      <form id="appealForm" class="space-y-6 lg:col-span-3" novalidate>
+
+        <fieldset class="card space-y-4">
+          <legend class="sr-only">Dane wnioskodawcy</legend>
+          <h3 class="font-bold">1. Twoje dane</h3>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="lbl" for="a-gender">Forma gramatyczna pisma</label>
+              <select class="field" id="a-gender"><option value="m">Pan (np. „uiściłem”)</option><option value="f">Pani (np. „uiściłam”)</option></select>
+            </div>
+            <div>
+              <label class="lbl" for="a-name">Imię i nazwisko *</label>
+              <input class="field" id="a-name" autocomplete="name">
+            </div>
+            <div>
+              <label class="lbl" for="a-street">Ulica i numer *</label>
+              <input class="field" id="a-street" autocomplete="street-address">
+            </div>
+            <div>
+              <label class="lbl" for="a-city">Kod pocztowy i miejscowość *</label>
+              <input class="field" id="a-city" placeholder="90-001 Łódź">
+            </div>
+            <div>
+              <label class="lbl" for="a-email">E-mail</label>
+              <input class="field" id="a-email" type="email" autocomplete="email">
+            </div>
+            <div>
+              <label class="lbl" for="a-phone">Telefon</label>
+              <input class="field" id="a-phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="card space-y-4">
+          <legend class="sr-only">Dane z raportu z kontroli</legend>
+          <h3 class="font-bold">2. Dane z raportu z kontroli</h3>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="lbl" for="a-reportNo">Numer raportu / opłaty dodatkowej *</label>
+              <input class="field" id="a-reportNo">
+            </div>
+            <div>
+              <label class="lbl" for="a-plate">Nr rejestracyjny pojazdu (z raportu) *</label>
+              <input class="field uppercase" id="a-plate" placeholder="EL 12345">
+            </div>
+            <div>
+              <label class="lbl" for="a-controlDate">Data kontroli *</label>
+              <input class="field" id="a-controlDate" type="date">
+            </div>
+            <div>
+              <label class="lbl" for="a-controlTime">Godzina kontroli</label>
+              <input class="field" id="a-controlTime" type="time">
+            </div>
+            <div>
+              <label class="lbl" for="a-place">Miejsce postoju (ulica) *</label>
+              <input class="field" id="a-place" placeholder="ul. Piotrkowska 100">
+            </div>
+            <div>
+              <label class="lbl" for="a-zone">Podstrefa</label>
+              <select class="field" id="a-zone"><option value="">nie wiem</option><option>A</option><option>B</option><option>C</option></select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="card space-y-4">
+          <legend class="sr-only">Podstawa wniosku</legend>
+          <h3 class="font-bold">3. Podstawa wniosku *</h3>
+          <div class="space-y-2" id="reasonGroup">
+            <label class="flex cursor-pointer gap-3 rounded-lg border border-slate-200 p-3 has-checked:border-brand-700 has-checked:bg-brand-50">
+              <input type="radio" name="reason" value="typo" class="mt-1 accent-brand-700" checked>
+              <span class="text-sm"><strong>Omyłka pisarska w numerze rejestracyjnym</strong><br><span class="text-slate-600">Np. bilet opłacony w aplikacji AnyPark, SkyCash lub mPay na drugi samochód albo zamiana znaków w tablicy (0 i O).</span></span>
+            </label>
+            <label class="flex cursor-pointer gap-3 rounded-lg border border-slate-200 p-3 has-checked:border-brand-700 has-checked:bg-brand-50">
+              <input type="radio" name="reason" value="sync" class="mt-1 accent-brand-700">
+              <span class="text-sm"><strong>Bilet wykupiony w aplikacji w momencie kontroli</strong><br><span class="text-slate-600">Opóźnienie synchronizacji z systemem skanującym e-kontroli.</span></span>
+            </label>
+            <label class="flex cursor-pointer gap-3 rounded-lg border border-slate-200 p-3 has-checked:border-brand-700 has-checked:bg-brand-50">
+              <input type="radio" name="reason" value="exempt" class="mt-1 accent-brand-700">
+              <span class="text-sm"><strong>Ważny abonament lub zwolnienie ustawowe</strong><br><span class="text-slate-600">Pojazd elektryczny BEV, abonament albo karta parkingowa.</span></span>
+            </label>
+            <label class="flex cursor-pointer gap-3 rounded-lg border border-slate-200 p-3 has-checked:border-brand-700 has-checked:bg-brand-50">
+              <input type="radio" name="reason" value="meter" class="mt-1 accent-brand-700">
+              <span class="text-sm"><strong>Awaria parkomatu i brak możliwości wniesienia opłaty</strong></span>
+            </label>
+          </div>
+
+          <datalist id="apps"><option value="AnyPark"><option value="mPay"><option value="moBILET"><option value="SkyCash"></datalist>
+
+          <div data-reason="typo" class="space-y-4 border-t border-slate-200 pt-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div><label class="lbl" for="a-app">Aplikacja *</label><input class="field" id="a-app" list="apps"></div>
+              <div><label class="lbl" for="a-tx">Nr transakcji / biletu</label><input class="field" id="a-tx"></div>
+              <div><label class="lbl" for="a-payDate">Data płatności *</label><input class="field" id="a-payDate" type="date"></div>
+              <div><label class="lbl" for="a-payTime">Godzina płatności</label><input class="field" id="a-payTime" type="time"></div>
+              <div><label class="lbl" for="a-paidFrom">Opłacony postój od</label><input class="field" id="a-paidFrom" type="time"></div>
+              <div><label class="lbl" for="a-paidTo">Opłacony postój do</label><input class="field" id="a-paidTo" type="time"></div>
+              <div><label class="lbl" for="a-amount">Kwota (zł)</label><input class="field" id="a-amount" inputmode="decimal" placeholder="12,40"></div>
+              <div><label class="lbl" for="a-wrongPlate">Numer wpisany przy płatności *</label><input class="field uppercase" id="a-wrongPlate" placeholder="EL 1234O"></div>
+            </div>
+            <div>
+              <label class="lbl" for="a-typoKind">Rodzaj pomyłki</label>
+              <select class="field" id="a-typoKind">
+                <option value="vehicle">Wybrany drugi pojazd zapisany w aplikacji</option>
+                <option value="chars">Zamiana podobnych znaków (np. 0 i O)</option>
+                <option value="other">Inna omyłka</option>
+              </select>
+            </div>
+            <label class="flex items-start gap-2 text-sm"><input type="checkbox" id="a-otherNotParked" class="mt-1 accent-brand-700">
+              <span>Pojazd o numerze wpisanym przy płatności nie stał w tym czasie w SPP</span></label>
+          </div>
+
+          <div data-reason="sync" class="hidden space-y-4 border-t border-slate-200 pt-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div><label class="lbl" for="a-sApp">Aplikacja *</label><input class="field" id="a-sApp" list="apps"></div>
+              <div><label class="lbl" for="a-sTx">Nr transakcji / biletu</label><input class="field" id="a-sTx"></div>
+              <div><label class="lbl" for="a-parkTime">Godzina zaparkowania *</label><input class="field" id="a-parkTime" type="time"></div>
+              <div><label class="lbl" for="a-sPayTime">Godzina uruchomienia biletu *</label><input class="field" id="a-sPayTime" type="time"></div>
+              <div><label class="lbl" for="a-sAmount">Kwota (zł)</label><input class="field" id="a-sAmount" inputmode="decimal"></div>
+            </div>
+            <p id="syncWarn" class="hidden rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900"></p>
+          </div>
+
+          <div data-reason="exempt" class="hidden space-y-4 border-t border-slate-200 pt-4">
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-3">
+              <label class="seg"><input class="sr-only" type="radio" name="exemptType" value="bev" checked>Pojazd elektryczny</label>
+              <label class="seg"><input class="sr-only" type="radio" name="exemptType" value="permit">Abonament</label>
+              <label class="seg"><input class="sr-only" type="radio" name="exemptType" value="card">Karta parkingowa</label>
+            </div>
+            <p data-exempt="bev" class="text-sm text-slate-600">Zwolnienie dotyczy pojazdów napędzanych wyłącznie energią elektryczną. Hybrydy, w tym plug-in, nie są zwolnione. Dołącz dowód rejestracyjny z rodzajem paliwa „energia elektryczna”.</p>
+            <div data-exempt="permit" class="hidden grid gap-4 sm:grid-cols-3">
+              <div><label class="lbl" for="a-permitNo">Nr abonamentu *</label><input class="field" id="a-permitNo"></div>
+              <div><label class="lbl" for="a-permitFrom">Ważny od</label><input class="field" id="a-permitFrom" type="date"></div>
+              <div><label class="lbl" for="a-permitTo">Ważny do</label><input class="field" id="a-permitTo" type="date"></div>
+              <p class="hint sm:col-span-3">Sprawdź, czy abonament obejmował podstrefę i miejsce postoju.</p>
+            </div>
+            <div data-exempt="card" class="hidden">
+              <label class="lbl" for="a-cardNo">Nr karty parkingowej *</label><input class="field" id="a-cardNo">
+              <p class="hint">Sprawdź w uchwale lub w ZDiT, czy uprawnienie karty obejmowało dane miejsce postoju (np. wyznaczone miejsce dla osób z niepełnosprawnościami).</p>
+            </div>
+          </div>
+
+          <div data-reason="meter" class="hidden space-y-4 border-t border-slate-200 pt-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div><label class="lbl" for="a-meterLoc">Parkomat (numer lub lokalizacja) *</label><input class="field" id="a-meterLoc" placeholder="nr 123 przy ul. Zachodniej 10"></div>
+              <div><label class="lbl" for="a-meterTime">Godzina próby płatności</label><input class="field" id="a-meterTime" type="time"></div>
+            </div>
+            <div><label class="lbl" for="a-meterIssue">Opis awarii *</label><textarea class="field" id="a-meterIssue" rows="2" placeholder="nie przyjmował karty ani monet, wyświetlał komunikat „Poza obsługą”"></textarea></div>
+            <div><label class="lbl" for="a-meterReported">Zgłoszenie awarii</label><textarea class="field" id="a-meterReported" rows="2" placeholder="Awarię zgłosiłem telefonicznie do ZDiT o godz. 9:20."></textarea></div>
+            <div><label class="lbl" for="a-meterAlt">Dlaczego nie było innej możliwości zapłaty</label><textarea class="field" id="a-meterAlt" rows="2" placeholder="Najbliższy parkomat również był nieczynny; nie posiadam smartfona z aplikacją."></textarea>
+              <p class="hint">ZDiT może wskazać, że opłatę dało się wnieść w innym parkomacie lub w aplikacji. Wyjaśnij, dlaczego nie było to możliwe.</p></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="card space-y-4">
+          <legend class="sr-only">Uzupełnienie i załączniki</legend>
+          <h3 class="font-bold">4. Uzupełnienie i załączniki</h3>
+          <div>
+            <label class="lbl" for="a-extra">Dodatkowe wyjaśnienia (opcjonalnie)</label>
+            <textarea class="field" id="a-extra" rows="3"></textarea>
+          </div>
+          <div>
+            <p class="lbl">Lista załączników</p>
+            <ul id="attList" class="space-y-2 text-sm"></ul>
+            <div class="mt-3 flex gap-2">
+              <input class="field" id="a-customAtt" placeholder="Dodaj własny załącznik">
+              <button type="button" id="addAtt" class="btn btn-ghost shrink-0">Dodaj</button>
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div><label class="lbl" for="a-letterPlace">Miejscowość pisma</label><input class="field" id="a-letterPlace" value="Łódź"></div>
+            <div><label class="lbl" for="a-letterDate">Data pisma</label><input class="field" id="a-letterDate" type="date"></div>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="space-y-6 lg:sticky lg:top-20 lg:col-span-2 lg:self-start">
+        <div class="card" id="tracker">
+          <h3 class="font-bold">Termin 14 dni</h3>
+          <p id="trackerText" class="mt-1 text-sm text-slate-600">Podaj datę kontroli, aby zobaczyć termin zapłaty opłaty dodatkowej.</p>
+          <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-slate-200"><div id="trackerBar" class="h-2 rounded-full bg-brand-700" style="width:0%"></div></div>
+          <p class="hint">Termin liczony od daty kontroli. Sprawdź termin wskazany w raporcie. Złożenie wniosku nie jest odwołaniem i nie należy zakładać, że wstrzymuje termin zapłaty.</p>
+        </div>
+
+        <div class="card">
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="font-bold">Podgląd wniosku</h3>
+            <span class="text-xs text-slate-500">A4</span>
+          </div>
+          <div id="preview" class="paper relative mt-3 max-h-[560px] overflow-hidden rounded-lg border border-slate-200 bg-white p-5 text-[13px] leading-relaxed text-slate-900"></div>
+          <ul id="formErrors" class="mt-3 hidden list-disc space-y-1 rounded-lg border border-red-200 bg-red-50 p-3 pl-7 text-sm text-red-800" role="alert"></ul>
+          <button type="button" id="getPdf" class="btn btn-primary mt-4 w-full">Pobierz wniosek PDF</button>
+          <p class="hint text-center">Wysyłka: list polecony lub kancelaria ZDiT, ul. J. Tuwima 36, 90-002 Łódź, albo e-Doręczenia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="scroll-mt-20 pt-12" aria-labelledby="faq-h">
+    <h2 id="faq-h" class="text-xl font-bold sm:text-2xl">FAQ: Strefa Płatnego Parkowania Łódź 2026</h2>
+    <div class="mt-4 space-y-3" id="faqList">
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">W jakich godzinach obowiązuje SPP w Łodzi?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Od poniedziałku do piątku w godzinach 7:00–19:00. W soboty, niedziele i święta ustawowo wolne od pracy postój jest bezpłatny.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Ile kosztuje parkowanie w podstrefach A, B i C?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Podstrefa A: Łodzianin 6,00 / 7,20 / 8,60 zł za 1., 2. i 3. godzinę i 6,00 zł za każdą kolejną; przyjezdny 6,90 / 8,20 / 9,80 zł i 6,90 zł. Podstrefy B i C: Łodzianin 5,00 / 6,00 / 7,20 zł i 5,00 zł; przyjezdny 6,00 / 7,20 / 8,60 zł i 6,00 zł.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Kto płaci stawkę Łodzianina?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Pojazdy z tablicami EL oraz pojazdy zgłoszone do ZDiT przez mieszkańców Łodzi jeżdżących na innych tablicach, np. samochody w leasingu zarejestrowane poza Łodzią. Pozostali kierowcy płacą stawkę dla przyjezdnych.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Czy samochody elektryczne płacą?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Nie. Pojazdy elektryczne w rozumieniu art. 2 pkt 12 ustawy z dnia 11 stycznia 2018 r. o elektromobilności i paliwach alternatywnych są zwolnione z opłat za postój w SPP na podstawie art. 13 ust. 3 ustawy o drogach publicznych. Hybrydy, w tym plug-in, płacą.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Ile wynosi opłata dodatkowa za brak biletu?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">300 zł, płatne w terminie 14 dni. Opłata dodatkowa powstaje z mocy prawa, gdy postój nie zostanie opłacony albo opłacony czas zostanie przekroczony.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Jak odwołać się od opłaty dodatkowej 300 zł?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Po otrzymaniu raportu z kontroli możesz złożyć do ZDiT (ul. J. Tuwima 36, 90-002 Łódź) wniosek o wyjaśnienie powstania opłaty dodatkowej: listownie, w kancelarii lub przez e-Doręczenia. Nie jest to tryb odwoławczy. Według Urzędu Miasta Łodzi od odpowiedzi ZDiT nie przysługuje dalsza droga odwoławcza, a zarzuty można wnieść dopiero na etapie egzekucji administracyjnej.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Ile kosztuje abonament mieszkańca strefy?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">365 zł za rok, czyli 1 zł dziennie. Abonament jest przeznaczony dla mieszkańców obszaru SPP; warunki określa uchwała Rady Miejskiej w Łodzi i regulamin ZDiT.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Ile mam czasu na opłacenie postoju po zaparkowaniu?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Opłatę wnosi się niezwłocznie, nie później niż w ciągu 5 minut od zaparkowania.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-slate-200 bg-white">
+  <div class="mx-auto max-w-6xl space-y-2 px-4 py-8 text-xs text-slate-500">
+    <p><strong>Źródła danych:</strong> uchwała nr XIII/329/25 Rady Miejskiej w Łodzi z dnia 15 stycznia 2025 r. w sprawie Strefy Płatnego Parkowania (z późniejszymi zmianami), ustawa z dnia 21 marca 1985 r. o drogach publicznych (art. 13, 13b, 13f), ustawa z dnia 11 stycznia 2018 r. o elektromobilności i paliwach alternatywnych, informacje Urzędu Miasta Łodzi (uml.lodz.pl). Stawki i zasady mogą się zmienić. Przed parkowaniem lub złożeniem wniosku sprawdź aktualne dane w ZDiT.</p>
+    <p>Serwis nie jest powiązany z Urzędem Miasta Łodzi ani z Zarządem Dróg i Transportu. Wyniki kalkulatora są szacunkowe. Generator tworzy wzór pisma i nie stanowi porady prawnej. Dane wpisane w formularzach pozostają w Twojej przeglądarce.</p>
+  </div>
+</footer>
+
+<!-- MONETIZATION MODAL -->
+<dialog id="payDialog" class="m-auto w-[min(92vw,440px)] rounded-2xl p-0 shadow-2xl" aria-labelledby="pay-h">
+  <div class="p-6">
+    <div class="flex items-start justify-between gap-4">
+      <h3 id="pay-h" class="text-lg font-bold">Pobierz gotowy wniosek PDF</h3>
+      <button type="button" id="payClose" class="rounded-md px-2 text-2xl leading-none text-slate-500 hover:bg-slate-100" aria-label="Zamknij">×</button>
+    </div>
+    <p class="mt-2 text-sm text-slate-600">Sformatowany wniosek A4 do ZDiT Łódź z listą załączników i stroną kontrolną z terminem 14 dni.</p>
+    <p class="mt-4 text-3xl font-extrabold"><span id="payPrice">9,99 zł</span> <span class="text-sm font-medium text-slate-500">jednorazowo</span></p>
+    <ol class="mt-4 space-y-2 text-sm text-slate-700">
+      <li><strong>1.</strong> Wesprzyj autora przez BuyCoffee.to (BLIK, szybki przelew, karta).</li>
+      <li><strong>2.</strong> Potwierdź wpłatę i pobierz plik.</li>
+    </ol>
+    <a id="buyCoffee" class="btn mt-4 w-full bg-amber-400 text-slate-900 hover:bg-amber-300 focus-visible:ring-amber-500" href="#" target="_blank" rel="noopener">Zapłać BLIK przez BuyCoffee.to</a>
+    <p id="payConfigWarn" class="mt-2 hidden rounded-md bg-red-50 p-2 text-xs text-red-800">Konfiguracja: ustaw adres profilu w CONFIG.buyCoffeeUrl.</p>
+    <label class="mt-4 flex items-start gap-2 text-sm"><input type="checkbox" id="payConfirm" class="mt-1 accent-brand-700" disabled>
+      <span>Potwierdzam dokonanie wpłaty</span></label>
+    <button type="button" id="payDownload" class="btn btn-primary mt-4 w-full" disabled>Pobierz PDF</button>
+    <p class="mt-3 text-xs text-slate-500">Płatność obsługuje BuyCoffee.to. Ta strona nie przetwarza danych płatniczych.</p>
+  </div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.23/build/pdfmake.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.23/build/vfs_fonts.js" defer></script>
+<script>
+'use strict';
+
+// Ustawienia właściciela serwisu
+const CONFIG = {
+  pdfPrice: '9,99 zł',
+  buyCoffeeUrl: 'https://buycoffee.to/TWOJ-PROFIL',
+  adContactUrl: 'mailto:reklama@example.com?subject=Reklama%20-%20Kalkulator%20SPP%20%C5%81%C3%B3d%C5%BA'
+};
+
+// Dane SPP Łódź 2026. Kwoty w groszach.
+const SPP = {
+  startMin: 7 * 60,
+  endMin: 19 * 60,
+  // [1. godzina, 2. godzina, 3. godzina, 4. i każda kolejna]
+  rates: {
+    A: { lodzianin: [600, 720, 860, 600], przyjezdny: [690, 820, 980, 690] },
+    B: { lodzianin: [500, 600, 720, 500], przyjezdny: [600, 720, 860, 600] },
+    C: { lodzianin: [500, 600, 720, 500], przyjezdny: [600, 720, 860, 600] }
+  },
+  zones: {
+    A: 'Ścisłe centrum: ul. Piotrkowska, Park Moniuszki, Galeria Łódzka.',
+    B: 'Pozostałe Śródmieście, Radiostacja, okolice Orientarium ZOO i Aquaparku Fala.',
+    C: 'Bałucki Rynek.'
+  },
+  statusLabel: { lodzianin: 'Łodzianin (EL / ZDiT)', przyjezdny: 'Przyjezdny' },
+  residentPermitYear: 36500,
+  surcharge: 30000,
+  surchargeDays: 14,
+  paymentWindowMin: 5,
+  zdit: ['Zarząd Dróg i Transportu w Łodzi', 'ul. J. Tuwima 36', '90-002 Łódź']
+};
+
+const ROADS_ACT = 'ustawy z dnia 21 marca 1985 r. o drogach publicznych';
+
+/* ---------- utils ---------- */
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2, '0');
+const isoDate = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+function parseIso(s) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || '');
+  return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+}
+function fmtDate(s) {
+  const d = typeof s === 'string' ? parseIso(s) : s;
+  return d ? `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()}` : '';
+}
+function toMin(t) {
+  const m = /^(\d{1,2}):(\d{2})/.exec(t || '');
+  return m ? +m[1] * 60 + +m[2] : null;
+}
+const fmtTime = min => `${pad(Math.floor(min / 60))}:${pad(min % 60)}`;
+function fmtPLN(grosze) {
+  return (grosze / 100).toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' zł';
+}
+function fmtDuration(min) {
+  const h = Math.floor(min / 60), m = min % 60;
+  return h ? (m ? `${h} h ${m} min` : `${h} h`) : `${m} min`;
+}
+function minuteWord(n) {
+  if (n === 1) return 'minutę';
+  const l = n % 10, l2 = n % 100;
+  return l >= 2 && l <= 4 && (l2 < 12 || l2 > 14) ? 'minuty' : 'minut';
+}
+function dayWord(n) {
+  return Math.abs(n) === 1 ? 'dzień' : 'dni';
+}
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function sentence(s) {
+  s = (s || '').trim();
+  return !s || /[.!?…]$/.test(s) ? s : s + '.';
+}
+function money(s) {
+  s = (s || '').trim().replace(/\s*(zł|pln)$/i, '');
+  if (!s) return '';
+  const n = Number(s.replace(',', '.'));
+  return Number.isFinite(n) ? fmtPLN(Math.round(n * 100)).replace(' ', ' ') : s + ' zł';
+}
+const plate = s => (s || '').trim().toUpperCase().replace(/\s+/g, '\u00a0');
+
+/* ---------- kalendarz: weekendy i święta ustawowe ---------- */
+function easterSunday(y) {
+  const a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4;
+  const f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const n = h + l - 7 * m + 114;
+  return new Date(y, Math.floor(n / 31) - 1, (n % 31) + 1);
+}
+const holidayCache = {};
+function polishHolidays(y) {
+  if (holidayCache[y]) return holidayCache[y];
+  const map = new Map();
+  const add = (d, name) => map.set(isoDate(d), name);
+  [[1, 1, 'Nowy Rok'], [1, 6, 'Święto Trzech Króli'], [5, 1, 'Święto Pracy'], [5, 3, 'Święto Narodowe Trzeciego Maja'],
+   [8, 15, 'Wniebowzięcie Najświętszej Maryi Panny'], [11, 1, 'Wszystkich Świętych'], [11, 11, 'Narodowe Święto Niepodległości'],
+   [12, 25, 'Boże Narodzenie'], [12, 26, 'drugi dzień Bożego Narodzenia']]
+    .forEach(([m, d, name]) => add(new Date(y, m - 1, d), name));
+  // Wigilia jest dniem wolnym od pracy od 2025 r.
+  if (y >= 2025) add(new Date(y, 11, 24), 'Wigilia Bożego Narodzenia');
+  const e = easterSunday(y);
+  const shift = n => new Date(y, e.getMonth(), e.getDate() + n);
+  add(e, 'Wielkanoc');
+  add(shift(1), 'Poniedziałek Wielkanocny');
+  add(shift(49), 'Zielone Świątki');
+  add(shift(60), 'Boże Ciało');
+  holidayCache[y] = map;
+  return map;
+}
+function dayStatus(iso) {
+  const d = parseIso(iso);
+  if (!d) return null;
+  const dow = d.getDay();
+  if (dow === 6) return { free: true, reason: 'sobota' };
+  if (dow === 0) return { free: true, reason: 'niedziela' };
+  const hol = polishHolidays(d.getFullYear()).get(iso);
+  if (hol) return { free: true, reason: `święto: ${hol}` };
+  return { free: false, reason: 'dzień roboczy' };
+}
+function nextWorkingDay(from) {
+  const d = new Date(from.getFullYear(), from.getMonth(), from.getDate());
+  while (dayStatus(isoDate(d)).free) d.setDate(d.getDate() + 1);
+  return d;
+}
+
+/* ---------- silnik taryfy ---------- */
+function calcStay(zone, status, startMin, endMin) {
+  const rates = SPP.rates[zone][status];
+  const from = Math.max(startMin, SPP.startMin);
+  const to = Math.min(endMin, SPP.endMin);
+  const minutes = Math.max(0, to - from);
+  const segments = [];
+  let total = 0;
+  for (let k = 0; k * 60 < minutes; k++) {
+    const mins = Math.min(60, minutes - k * 60);
+    const rate = rates[Math.min(k, 3)];
+    const cost = rate * mins / 60;
+    segments.push({ index: k + 1, from: from + k * 60, to: from + k * 60 + mins, mins, rate, cost: Math.round(cost) });
+    total += cost;
+  }
+  return { from, to, minutes, segments, total: Math.round(total) };
+}
+
+/* ---------- Funkcja 1: kalkulator ---------- */
+function radio(name) {
+  const r = document.querySelector(`input[name="${name}"]:checked`);
+  return r ? r.value : null;
+}
+
+function updateCalc() {
+  const zone = radio('zone'), status = radio('status'), engine = radio('engine');
+  const date = $('parkDate').value;
+  const start = toMin($('tStart').value), end = toMin($('tEnd').value);
+  const days = +$('days').value;
+  $('daysOut').textContent = days;
+  $('daysOut2').textContent = days;
+  $('zoneDesc').textContent = SPP.zones[zone];
+
+  const err = $('calcError');
+  if (start == null || end == null || end <= start) {
+    err.textContent = 'Godzina zakończenia musi być późniejsza niż godzina rozpoczęcia (postój w obrębie jednego dnia).';
+    err.classList.remove('hidden');
+    return;
+  }
+  err.classList.add('hidden');
+
+  const bev = engine === 'bev';
+  const day = dayStatus(date);
+  const stay = calcStay(zone, status, start, end);
+  const freeDay = day && day.free;
+
+  // Pojedynczy postój
+  const badge = $('dayBadge');
+  if (bev) {
+    badge.textContent = 'BEV: zwolnienie';
+    badge.className = 'rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800';
+  } else if (freeDay) {
+    badge.textContent = `Bezpłatnie: ${day.reason}`;
+    badge.className = 'rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800';
+  } else {
+    badge.textContent = day ? 'Dzień roboczy: płatny' : 'Wybierz dzień';
+    badge.className = 'rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-800';
+  }
+
+  const stayCost = bev || freeDay ? 0 : stay.total;
+  $('stayTotal').textContent = fmtPLN(stayCost);
+  const paidWindow = stay.minutes ? `Płatny czas: ${fmtTime(stay.from)}–${fmtTime(stay.to)} (${fmtDuration(stay.minutes)})` : 'Brak płatnego czasu w godzinach 7:00–19:00';
+  $('stayMeta').textContent = `${paidWindow} · podstrefa ${zone} · ${SPP.statusLabel[status]}`;
+
+  const tbody = $('breakdown');
+  if (bev) {
+    tbody.innerHTML = `<tr><td colspan="5" class="py-3 text-slate-600">Pojazdy elektryczne są zwolnione z opłat za postój w SPP (art. 13 ust. 3 ${esc(ROADS_ACT)}).</td></tr>`;
+  } else if (freeDay) {
+    tbody.innerHTML = `<tr><td colspan="5" class="py-3 text-slate-600">${esc(fmtDate(date))} to ${esc(day.reason)}: postój w SPP jest bezpłatny.</td></tr>`;
+  } else if (!stay.segments.length) {
+    tbody.innerHTML = '<tr><td colspan="5" class="py-3 text-slate-600">Postój poza godzinami płatnymi 7:00–19:00.</td></tr>';
+  } else {
+    tbody.innerHTML = stay.segments.map(s => `<tr>
+      <td class="py-2 pr-3">${s.index}.</td>
+      <td class="py-2 pr-3">${fmtTime(s.from)}–${fmtTime(s.to)}</td>
+      <td class="py-2 pr-3 text-right">${s.mins}</td>
+      <td class="hidden py-2 pr-3 text-right sm:table-cell">${fmtPLN(s.rate)}/h</td>
+      <td class="py-2 text-right font-medium">${fmtPLN(s.cost)}</td></tr>`).join('') +
+      `<tr class="font-bold"><td class="py-2 pr-3" colspan="4">Razem</td><td class="py-2 text-right">${fmtPLN(stay.total)}</td></tr>`;
+  }
+
+  // Prognoza dla dnia roboczego z tymi samymi godzinami
+  const perDay = bev ? 0 : stay.total;
+  const monthly = perDay * days, annual = monthly * 12;
+  $('perDay').textContent = fmtPLN(perDay);
+  $('monthly').textContent = fmtPLN(monthly);
+  $('annual').textContent = fmtPLN(annual);
+
+  // Łodzianin vs przyjezdny
+  const lodz = calcStay(zone, 'lodzianin', start, end).total;
+  const przy = calcStay(zone, 'przyjezdny', start, end).total;
+  const diff = bev ? 0 : przy - lodz;
+  $('lossDay').textContent = fmtPLN(diff);
+  $('lossMonth').textContent = fmtPLN(diff * days);
+  $('lossYear').textContent = fmtPLN(diff * days * 12);
+  $('lossLead').textContent = bev
+    ? 'Pojazd elektryczny nie płaci w SPP, więc status kierowcy nie wpływa na koszt.'
+    : status === 'przyjezdny'
+      ? `Płacąc stawkę przyjezdnego w podstrefie ${zone}, wydajesz więcej niż Łodzianin przy tych samych godzinach postoju:`
+      : `Status Łodzianina oszczędza Ci w podstrefie ${zone} względem stawki przyjezdnego:`;
+
+  // Abonament mieszkańca
+  const permit = SPP.residentPermitYear;
+  $('aboTickets').textContent = fmtPLN(annual);
+  const aboDiff = annual - permit;
+  $('aboDiff').textContent = fmtPLN(Math.max(0, aboDiff));
+  $('aboDiff').className = `tnum text-lg font-bold ${aboDiff > 0 ? 'text-emerald-700' : 'text-slate-700'}`;
+  $('aboLead').textContent = `Bilety przy obecnych ustawieniach (${SPP.statusLabel[status]}, ${days} dni w miesiącu) w porównaniu z abonamentem mieszkańca.`;
+  const brk = $('aboBreak');
+  if (perDay === 0) {
+    brk.textContent = 'Przy zerowym koszcie dziennym abonament się nie opłaca.';
+    brk.className = 'mt-3 text-sm font-medium text-slate-700';
+  } else {
+    const breakEven = Math.ceil(permit / perDay);
+    const daysYear = days * 12;
+    brk.textContent = aboDiff > 0
+      ? `Abonament mieszkańca oszczędza ${fmtPLN(aboDiff)} rocznie. Opłaca się od ${breakEven}. dnia parkowania w roku (Ty parkujesz ${daysYear} dni).`
+      : `Abonament mieszkańca zacznie się opłacać od ${breakEven}. dnia parkowania w roku przy tych godzinach (Ty parkujesz ${daysYear} dni).`;
+    brk.className = `mt-3 text-sm font-medium ${aboDiff > 0 ? 'text-emerald-700' : 'text-slate-700'}`;
+  }
+}
+
+function renderRateTable() {
+  const rows = [];
+  for (const [zones, key] of [['A', 'A'], ['B i C', 'B']]) {
+    for (const status of ['lodzianin', 'przyjezdny']) {
+      const r = SPP.rates[key][status];
+      const sum3 = r[0] + r[1] + r[2];
+      const full = calcStay(key, status, SPP.startMin, SPP.endMin).total;
+      rows.push(`<tr>
+        <td class="px-4 py-3 font-semibold">${zones}</td><td class="px-4 py-3">${SPP.statusLabel[status]}</td>
+        <td class="px-4 py-3 text-right">${fmtPLN(r[0])}</td><td class="px-4 py-3 text-right">${fmtPLN(r[1])}</td><td class="px-4 py-3 text-right">${fmtPLN(r[2])}</td>
+        <td class="px-4 py-3 text-right font-semibold">${fmtPLN(sum3)}</td><td class="px-4 py-3 text-right">${fmtPLN(r[3])}</td>
+        <td class="px-4 py-3 text-right">${fmtPLN(full)}</td></tr>`);
+    }
+  }
+  $('rateTable').innerHTML = rows.join('');
+}
+
+/* ---------- Funkcja 2: generator wniosku ---------- */
+const attOverrides = {};
+const customAtt = [];
+
+function readAppeal() {
+  const v = id => ($(id).value || '').trim();
+  return {
+    gender: v('a-gender'), name: v('a-name'), street: v('a-street'), city: v('a-city'), email: v('a-email'), phone: v('a-phone'),
+    reportNo: v('a-reportNo'), plate: plate(v('a-plate')), controlDate: v('a-controlDate'), controlTime: v('a-controlTime'),
+    place: v('a-place'), zone: v('a-zone'),
+    reason: radio('reason'),
+    app: v('a-app'), tx: v('a-tx'), payDate: v('a-payDate'), payTime: v('a-payTime'), paidFrom: v('a-paidFrom'), paidTo: v('a-paidTo'),
+    amount: money(v('a-amount')), wrongPlate: plate(v('a-wrongPlate')), typoKind: v('a-typoKind'), otherNotParked: $('a-otherNotParked').checked,
+    sApp: v('a-sApp'), sTx: v('a-sTx'), parkTime: v('a-parkTime'), sPayTime: v('a-sPayTime'), sAmount: money(v('a-sAmount')),
+    exemptType: radio('exemptType'), permitNo: v('a-permitNo'), permitFrom: v('a-permitFrom'), permitTo: v('a-permitTo'), cardNo: v('a-cardNo'),
+    meterLoc: v('a-meterLoc'), meterTime: v('a-meterTime'), meterIssue: v('a-meterIssue'), meterReported: v('a-meterReported'), meterAlt: v('a-meterAlt'),
+    extra: v('a-extra'), letterPlace: v('a-letterPlace') || 'Łódź', letterDate: v('a-letterDate')
+  };
+}
+
+function syncDelay(d) {
+  const p = toMin(d.parkTime), t = toMin(d.sPayTime);
+  return p == null || t == null ? null : t - p;
+}
+
+function defaultAttachments(d) {
+  const L = [{ key: 'report', label: `Kopia raportu z kontroli nr ${d.reportNo || '…'}`, on: true }];
+  if (d.reason === 'typo') {
+    L.push({ key: 'typo-proof', label: `Potwierdzenie płatności z aplikacji ${d.app || '…'}${d.tx ? ` (nr transakcji ${d.tx})` : ''}`, on: true });
+    L.push({ key: 'typo-reg', label: `Kopia dowodu rejestracyjnego pojazdu ${d.plate || '…'}`, on: true });
+    if (d.typoKind === 'vehicle') L.push({ key: 'typo-reg2', label: `Kopia dowodu rejestracyjnego pojazdu ${d.wrongPlate || '…'}`, on: false });
+    L.push({ key: 'typo-bank', label: 'Potwierdzenie obciążenia rachunku bankowego lub karty', on: false });
+  } else if (d.reason === 'sync') {
+    L.push({ key: 'sync-proof', label: `Potwierdzenie transakcji z aplikacji ${d.sApp || '…'} z godziną rozpoczęcia postoju`, on: true });
+    L.push({ key: 'sync-hist', label: 'Zrzut ekranu historii postojów z aplikacji', on: true });
+  } else if (d.reason === 'exempt') {
+    if (d.exemptType === 'bev') L.push({ key: 'ex-bev', label: 'Kopia dowodu rejestracyjnego (rodzaj paliwa: energia elektryczna)', on: true });
+    if (d.exemptType === 'permit') L.push({ key: 'ex-permit', label: `Kopia lub potwierdzenie abonamentu nr ${d.permitNo || '…'}`, on: true });
+    if (d.exemptType === 'card') L.push({ key: 'ex-card', label: `Kopia karty parkingowej nr ${d.cardNo || '…'} (obie strony)`, on: true });
+  } else if (d.reason === 'meter') {
+    L.push({ key: 'meter-photo', label: 'Zdjęcia niesprawnego parkomatu z widocznym numerem lub lokalizacją', on: true });
+    L.push({ key: 'meter-report', label: 'Potwierdzenie zgłoszenia awarii', on: !!d.meterReported });
+  }
+  return L;
+}
+
+function attachments(d) {
+  const defs = defaultAttachments(d).map(a => ({ ...a, on: a.key in attOverrides ? attOverrides[a.key] : a.on }));
+  return { defs, list: [...defs.filter(a => a.on).map(a => a.label), ...customAtt.filter(a => a.on).map(a => a.label)] };
+}
+
+function reasonParagraphs(d) {
+  const g = (m, f) => (d.gender === 'f' ? f : m);
+  const P = [];
+  if (d.reason === 'typo') {
+    const det = [d.tx && `nr transakcji: ${d.tx}`, d.amount && `kwota: ${d.amount}`, d.paidFrom && d.paidTo && `opłacony czas postoju: ${d.paidFrom}–${d.paidTo}`].filter(Boolean);
+    const kind = d.typoKind === 'vehicle' ? ' – w aplikacji omyłkowo wybrano inny pojazd zapisany na koncie użytkownika'
+      : d.typoKind === 'chars' ? ' – przy wpisywaniu numeru doszło do zamiany podobnych znaków (np. „0” i „O”)' : '';
+    P.push(`W dniu ${fmtDate(d.payDate)}${d.payTime ? ` o godz. ${d.payTime}` : ''} ${g('uiściłem', 'uiściłam')} opłatę za postój w Strefie Płatnego Parkowania w Łodzi za pośrednictwem aplikacji ${d.app}${det.length ? ` (${det.join('; ')})` : ''}. Wskutek omyłki pisarskiej opłata została przypisana do numeru rejestracyjnego ${d.wrongPlate} zamiast ${d.plate}${kind}.`);
+    if (d.otherNotParked) P.push(`Pojazd o numerze rejestracyjnym ${d.wrongPlate} nie był w tym czasie zaparkowany w Strefie Płatnego Parkowania, zatem wniesiona opłata dotyczyła w rzeczywistości postoju pojazdu ${d.plate}.`);
+    P.push(`Opłata za postój w miejscu i czasie objętym kontrolą została więc faktycznie wniesiona na rzecz Miasta Łodzi. Zgodnie z art. 13f ust. 1 ${ROADS_ACT} opłatę dodatkową pobiera się za nieuiszczenie opłaty za postój w strefie płatnego parkowania. W niniejszej sprawie opłata została uiszczona, a rozbieżność dotyczy wyłącznie oczywistej omyłki w oznaczeniu pojazdu, którą można jednoznacznie zweryfikować na podstawie danych operatora płatności.`);
+    P.push('Obciążenie mnie opłatą dodatkową w wysokości 300,00 zł mimo faktycznego wniesienia opłaty za postój byłoby niewspółmierne do charakteru uchybienia i pozostawałoby w sprzeczności z zasadą proporcjonalności oraz zasadą zaufania obywateli do organów władzy publicznej (por. art. 2 Konstytucji Rzeczypospolitej Polskiej oraz art. 8 § 1 Kodeksu postępowania administracyjnego).');
+  } else if (d.reason === 'sync') {
+    const det = [d.sTx && `nr transakcji: ${d.sTx}`, d.sAmount && `kwota: ${d.sAmount}`].filter(Boolean);
+    const delay = syncDelay(d);
+    P.push(`W dniu ${fmtDate(d.controlDate)} o godz. ${d.parkTime} ${g('zaparkowałem', 'zaparkowałam')} pojazd o numerze rejestracyjnym ${d.plate} w miejscu: ${d.place}, a o godz. ${d.sPayTime} ${g('uruchomiłem', 'uruchomiłam')} płatny postój w aplikacji ${d.sApp}${det.length ? ` (${det.join('; ')})` : ''}.`);
+    const onTime = delay != null && delay >= 0 && delay <= SPP.paymentWindowMin;
+    if (onTime) P.push(`Opłata została zatem wniesiona ${delay === 0 ? 'bezpośrednio po zaparkowaniu' : `${delay} ${minuteWord(delay)} po zaparkowaniu`}, tj. w terminie wynikającym z uchwały Rady Miejskiej w Łodzi w sprawie Strefy Płatnego Parkowania, zgodnie z którą opłatę wnosi się niezwłocznie, nie później niż w ciągu 5 minut od zaparkowania pojazdu.`);
+    P.push(`${d.controlTime ? `Kontrola została odnotowana o godz. ${d.controlTime}. ` : ''}Rozbieżność między stanem faktycznym a wynikiem kontroli mogła wynikać z opóźnienia w przekazaniu informacji o rozpoczętym postoju pomiędzy systemem operatora płatności mobilnych a systemem kontroli. Wnoszę o zweryfikowanie danych operatora aplikacji ${d.sApp} oraz zapisów systemu kontroli dla wskazanego pojazdu i godziny.`);
+    if (onTime) P.push(`Skoro opłata za postój została wniesiona w terminie, nie zaistniała przesłanka nieuiszczenia opłaty, o której mowa w art. 13f ust. 1 ${ROADS_ACT}.`);
+  } else if (d.reason === 'exempt') {
+    if (d.exemptType === 'bev') {
+      P.push(`Pojazd o numerze rejestracyjnym ${d.plate} jest pojazdem elektrycznym w rozumieniu art. 2 pkt 12 ustawy z dnia 11 stycznia 2018 r. o elektromobilności i paliwach alternatywnych, co potwierdza dowód rejestracyjny (rodzaj paliwa: energia elektryczna).`);
+      P.push(`Na podstawie art. 13 ust. 3 ${ROADS_ACT} pojazdy elektryczne są zwolnione z opłat za postój w strefie płatnego parkowania. Obowiązek wniesienia opłaty za postój nie powstał, a w konsekwencji nie mogła powstać opłata dodatkowa, o której mowa w art. 13f ust. 1 tej ustawy.`);
+    } else if (d.exemptType === 'permit') {
+      const valid = d.permitFrom && d.permitTo ? ` (okres ważności: ${fmtDate(d.permitFrom)}–${fmtDate(d.permitTo)})` : '';
+      P.push(`W dniu kontroli ${g('posiadałem', 'posiadałam')} ważny abonament nr ${d.permitNo}${valid}, uprawniający do postoju pojazdu o numerze rejestracyjnym ${d.plate} w Strefie Płatnego Parkowania w Łodzi.`);
+      P.push(`Postój był więc opłacony w formie abonamentu, co wyklucza powstanie opłaty dodatkowej przewidzianej w art. 13f ust. 1 ${ROADS_ACT} za nieuiszczenie opłaty za postój.`);
+    } else {
+      P.push(`W chwili kontroli pojazd o numerze rejestracyjnym ${d.plate} był oznaczony ważną kartą parkingową nr ${d.cardNo}, umieszczoną w widocznym miejscu za przednią szybą, a postój odbywał się w ramach uprawnień przysługujących posiadaczowi karty parkingowej w Strefie Płatnego Parkowania w Łodzi.`);
+      P.push('Wnoszę o uwzględnienie tego uprawnienia przy wyjaśnianiu sprawy.');
+    }
+  } else if (d.reason === 'meter') {
+    P.push(`W dniu ${fmtDate(d.controlDate)}${d.meterTime ? ` około godz. ${d.meterTime}` : ''} ${g('próbowałem', 'próbowałam')} wnieść opłatę za postój pojazdu o numerze rejestracyjnym ${d.plate} w parkomacie ${d.meterLoc}, jednak urządzenie było niesprawne: ${sentence(d.meterIssue)}`);
+    const more = [sentence(d.meterReported), sentence(d.meterAlt)].filter(Boolean).join(' ');
+    if (more) P.push(more);
+    P.push('Niewniesienie opłaty nie wynikało zatem z mojej woli, lecz z przyczyn technicznych leżących po stronie infrastruktury Strefy Płatnego Parkowania. Wnoszę o uwzględnienie tych okoliczności oraz o sprawdzenie, czy w ewidencji Zarządu Dróg i Transportu odnotowano awarię wskazanego parkomatu w tym czasie.');
+  }
+  if (d.extra) P.push(sentence(d.extra));
+  return P;
+}
+
+function buildLetter(d) {
+  const sender = [d.name, d.street, d.city, d.email && `e-mail: ${d.email}`, d.phone && `tel. ${d.phone}`].filter(Boolean);
+  const ref = `raport z kontroli nr ${d.reportNo} z dnia ${fmtDate(d.controlDate)}${d.controlTime ? `, godz. ${d.controlTime}` : ''}; opłata dodatkowa 300,00 zł; pojazd nr rej. ${d.plate}; miejsce postoju: ${d.place}${d.zone ? ` (podstrefa ${d.zone})` : ''}.`;
+  const intro = `Działając we własnym imieniu, wnoszę o wyjaśnienie okoliczności powstania opłaty dodatkowej w wysokości 300,00 zł wskazanej w raporcie z kontroli nr ${d.reportNo} oraz o jej anulowanie.`;
+  const strong = d.reason !== 'meter';
+  const petitum = [
+    `wyjaśnienie okoliczności powstania opłaty dodatkowej wskazanej w raporcie z kontroli nr ${d.reportNo};`,
+    strong ? 'uznanie, że w opisanym stanie faktycznym opłata dodatkowa nie powstała, i jej anulowanie;' : 'uwzględnienie opisanych okoliczności i anulowanie opłaty dodatkowej;',
+    `przesłanie informacji o sposobie załatwienia wniosku ${d.email ? `na adres e-mail ${d.email} lub ` : ''}na adres korespondencyjny wskazany powyżej.`
+  ];
+  return {
+    header: `${d.letterPlace}, dnia ${fmtDate(d.letterDate)} r.`,
+    sender, addressee: SPP.zdit.slice(), ref, intro,
+    paragraphs: reasonParagraphs(d), petitum,
+    attachments: attachments(d).list
+  };
+}
+
+function validateAppeal(d) {
+  const errs = [];
+  const need = (id, msg) => { if (!$(id).value.trim()) errs.push([id, msg]); };
+  need('a-name', 'Imię i nazwisko');
+  need('a-street', 'Ulica i numer');
+  need('a-city', 'Kod pocztowy i miejscowość');
+  need('a-reportNo', 'Numer raportu z kontroli');
+  need('a-plate', 'Numer rejestracyjny pojazdu');
+  need('a-controlDate', 'Data kontroli');
+  need('a-place', 'Miejsce postoju');
+  if (d.reason === 'typo') { need('a-app', 'Aplikacja'); need('a-payDate', 'Data płatności'); need('a-wrongPlate', 'Numer wpisany przy płatności'); }
+  if (d.reason === 'sync') { need('a-sApp', 'Aplikacja'); need('a-parkTime', 'Godzina zaparkowania'); need('a-sPayTime', 'Godzina uruchomienia biletu'); }
+  if (d.reason === 'exempt' && d.exemptType === 'permit') need('a-permitNo', 'Numer abonamentu');
+  if (d.reason === 'exempt' && d.exemptType === 'card') need('a-cardNo', 'Numer karty parkingowej');
+  if (d.reason === 'meter') { need('a-meterLoc', 'Parkomat'); need('a-meterIssue', 'Opis awarii'); }
+  if (d.reason === 'typo' && d.wrongPlate && d.wrongPlate === d.plate) errs.push(['a-wrongPlate', 'Numer wpisany przy płatności jest taki sam jak numer z raportu']);
+  return errs;
+}
+
+function renderAttachments(d) {
+  const { defs } = attachments(d);
+  const row = (id, label, on, attr) => `<li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 accent-brand-700" ${attr}="${esc(id)}" ${on ? 'checked' : ''}><span>${esc(label)}</span></label></li>`;
+  $('attList').innerHTML = defs.map(a => row(a.key, a.label, a.on, 'data-att')).join('') +
+    customAtt.map((a, i) => row(i, a.label, a.on, 'data-custom')).join('');
+}
+
+function renderTracker(d) {
+  const text = $('trackerText'), bar = $('trackerBar');
+  const base = parseIso(d.controlDate);
+  if (!base) {
+    text.textContent = 'Podaj datę kontroli, aby zobaczyć termin zapłaty opłaty dodatkowej.';
+    bar.style.width = '0%';
+    return;
+  }
+  const deadline = new Date(base.getFullYear(), base.getMonth(), base.getDate() + SPP.surchargeDays);
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const left = Math.round((deadline - today) / 86400000);
+  const elapsed = Math.min(SPP.surchargeDays, Math.max(0, SPP.surchargeDays - left));
+  bar.style.width = `${(elapsed / SPP.surchargeDays) * 100}%`;
+  bar.className = `h-2 rounded-full ${left < 0 ? 'bg-red-600' : left <= 3 ? 'bg-amber-500' : 'bg-brand-700'}`;
+  text.innerHTML = left < 0
+    ? `Termin zapłaty: <strong>${fmtDate(deadline)}</strong>, <span class="font-semibold text-red-700">minął ${-left} ${dayWord(left)} temu</span>.`
+    : `Termin zapłaty: <strong>${fmtDate(deadline)}</strong>, <span class="font-semibold ${left <= 3 ? 'text-amber-700' : 'text-brand-800'}">${left === 0 ? 'mija dziś' : `pozostało ${left} ${dayWord(left)}`}</span>.`;
+}
+
+function renderPreview(d) {
+  const L = buildLetter(d);
+  const blank = s => s || '<span class="text-slate-400">…</span>';
+  const p = s => `<p class="mb-2 text-justify">${esc(s)}</p>`;
+  $('preview').innerHTML = `
+    <p class="text-right">${esc(L.header)}</p>
+    <div class="mt-3">${L.sender.length ? L.sender.map(esc).join('<br>') : blank('')}</div>
+    <div class="ml-auto mt-3 w-fit font-bold">${L.addressee.map(esc).join('<br>')}</div>
+    <p class="mt-4 text-center font-bold tracking-wide">WNIOSEK</p>
+    <p class="text-center font-bold">o wyjaśnienie powstania opłaty dodatkowej i jej anulowanie</p>
+    <p class="mt-3 mb-2"><strong>Dotyczy:</strong> ${esc(L.ref)}</p>
+    ${p(L.intro)}
+    <div class="blurred" aria-hidden="true">
+      <p class="mt-3 mb-1 font-bold">Uzasadnienie</p>
+      ${L.paragraphs.map(p).join('')}
+      <p class="mb-1">Mając powyższe na uwadze, wnoszę o:</p>
+      <ol class="mb-2 list-decimal pl-6">${L.petitum.map(s => `<li>${esc(s)}</li>`).join('')}</ol>
+      <p class="font-bold">Załączniki:</p>
+      <ol class="list-decimal pl-6">${L.attachments.map(s => `<li>${esc(s)}</li>`).join('')}</ol>
+    </div>
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 flex h-28 items-end justify-center bg-linear-to-t from-white via-white/90 to-transparent pb-4">
+      <span class="rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white">Pełna treść w pliku PDF</span>
+    </div>`;
+}
+
+function updateAppeal() {
+  const reason = radio('reason');
+  document.querySelectorAll('[data-reason]').forEach(el => el.classList.toggle('hidden', el.dataset.reason !== reason));
+  const ex = radio('exemptType');
+  document.querySelectorAll('[data-exempt]').forEach(el => el.classList.toggle('hidden', el.dataset.exempt !== ex));
+
+  const d = readAppeal();
+  const warn = $('syncWarn');
+  const delay = syncDelay(d);
+  if (reason === 'sync' && delay != null && (delay < 0 || delay > SPP.paymentWindowMin)) {
+    warn.textContent = delay < 0
+      ? 'Godzina uruchomienia biletu jest wcześniejsza niż godzina zaparkowania. Sprawdź wpisane godziny.'
+      : `Bilet uruchomiono ${delay} ${minuteWord(delay)} po zaparkowaniu, czyli po upływie 5 minut. Wniosek pominie argument o terminowej płatności.`;
+    warn.classList.remove('hidden');
+  } else {
+    warn.classList.add('hidden');
+  }
+  renderAttachments(d);
+  renderTracker(d);
+  renderPreview(d);
+}
+
+/* ---------- PDF (pdfmake) ---------- */
+function buildPdf(d) {
+  const L = buildLetter(d);
+  const base = parseIso(d.controlDate);
+  const deadline = new Date(base.getFullYear(), base.getMonth(), base.getDate() + SPP.surchargeDays);
+  const box = text => ({
+    columns: [
+      { width: 16, canvas: [{ type: 'rect', x: 0, y: 2, w: 9, h: 9, lineWidth: 0.8 }] },
+      { width: '*', text }
+    ],
+    margin: [0, 0, 0, 5]
+  });
+  const checklist = [
+    `Termin zapłaty opłaty dodatkowej (14 dni od daty kontroli ${fmtDate(base)}): ${fmtDate(deadline)}. Sprawdź termin wskazany w raporcie.`,
+    'Wniosek wydrukowany i własnoręcznie podpisany albo podpisany elektronicznie (podpis zaufany, osobisty lub kwalifikowany).',
+    ...L.attachments.map(a => `Załącznik: ${a}`),
+    'Kopia wniosku i dowód nadania zachowane w dokumentacji.'
+  ];
+  return {
+    pageSize: 'A4',
+    pageMargins: [60, 56, 60, 56],
+    info: { title: `Wniosek do ZDiT – raport nr ${d.reportNo}`, author: d.name, subject: 'Wniosek o wyjaśnienie powstania opłaty dodatkowej' },
+    defaultStyle: { font: 'Roboto', fontSize: 10.5, lineHeight: 1.25 },
+    content: [
+      { text: L.header, alignment: 'right' },
+      { stack: L.sender, margin: [0, 18, 0, 0] },
+      { stack: L.addressee, bold: true, margin: [280, 20, 0, 0] },
+      { text: 'WNIOSEK', alignment: 'center', bold: true, fontSize: 14, characterSpacing: 1, margin: [0, 26, 0, 2] },
+      { text: 'o wyjaśnienie powstania opłaty dodatkowej i jej anulowanie', alignment: 'center', bold: true },
+      { text: [{ text: 'Dotyczy: ', bold: true }, L.ref], margin: [0, 16, 0, 10] },
+      { text: L.intro, alignment: 'justify', margin: [0, 0, 0, 6] },
+      { text: 'Uzasadnienie', bold: true, margin: [0, 8, 0, 6] },
+      ...L.paragraphs.map(t => ({ text: t, alignment: 'justify', margin: [0, 0, 0, 6] })),
+      { text: 'Mając powyższe na uwadze, wnoszę o:', margin: [0, 4, 0, 4] },
+      { ol: L.petitum, margin: [10, 0, 0, 10] },
+      { text: 'Załączniki:', bold: true, margin: [0, 4, 0, 4] },
+      { ol: L.attachments, fontSize: 10, margin: [10, 0, 0, 0] },
+      {
+        columns: [{ width: '*', text: '' }, {
+          width: 200,
+          stack: [{ text: '.........................................................', alignment: 'center' }, { text: '(podpis)', alignment: 'center', fontSize: 8, color: '#555' }]
+        }],
+        margin: [0, 40, 0, 0]
+      },
+
+      { text: 'LISTA KONTROLNA – NIE DOŁĄCZAJ TEJ STRONY DO WNIOSKU', pageBreak: 'before', bold: true, fontSize: 12, margin: [0, 0, 0, 12] },
+      ...checklist.map(box),
+      { text: 'Gdzie złożyć wniosek', bold: true, margin: [0, 14, 0, 6] },
+      { ul: [
+        `Listem poleconym: ${SPP.zdit.join(', ')}.`,
+        'Osobiście w kancelarii ZDiT przy ul. J. Tuwima 36 w Łodzi.',
+        'Elektronicznie na adres do e-Doręczeń ZDiT (aktualny adres w BIP ZDiT).'
+      ], margin: [0, 0, 0, 10] },
+      { text: 'Ważne', bold: true, margin: [0, 8, 0, 6] },
+      { text: 'Według Urzędu Miasta Łodzi wniosek o wyjaśnienie powstania opłaty dodatkowej nie jest trybem odwoławczym i od odpowiedzi ZDiT nie przysługuje dalsza droga odwoławcza. Zarzuty w sprawie prowadzenia egzekucji administracyjnej można wnieść po doręczeniu odpisu tytułu wykonawczego. Dokument jest wzorem pisma i nie stanowi porady prawnej.', alignment: 'justify', fontSize: 9.5, color: '#333' }
+    ]
+  };
+}
+
+function downloadPdf() {
+  if (!window.pdfMake || typeof pdfMake.createPdf !== 'function') {
+    alert('Biblioteka PDF jeszcze się nie załadowała. Spróbuj ponownie za chwilę.');
+    return;
+  }
+  const d = readAppeal();
+  const file = `wniosek-ZDiT-${(d.reportNo || 'raport').replace(/[^\w-]+/g, '_')}.pdf`;
+  pdfMake.createPdf(buildPdf(d)).download(file);
+}
+
+/* ---------- modal ---------- */
+function openPay() {
+  const d = readAppeal();
+  const errs = validateAppeal(d);
+  document.querySelectorAll('#appealForm [aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+  const box = $('formErrors');
+  if (errs.length) {
+    errs.forEach(([id]) => $(id).setAttribute('aria-invalid', 'true'));
+    box.innerHTML = '<li class="list-none -ml-4 font-semibold">Uzupełnij pola:</li>' + errs.map(([, m]) => `<li>${esc(m)}</li>`).join('');
+    box.classList.remove('hidden');
+    $(errs[0][0]).focus();
+    return;
+  }
+  box.classList.add('hidden');
+  $('payConfirm').checked = false;
+  $('payDownload').disabled = true;
+  $('payDialog').showModal();
+}
+
+/* ---------- init ---------- */
+function init() {
+  const today = new Date();
+  $('parkDate').value = isoDate(nextWorkingDay(today));
+  $('a-letterDate').value = isoDate(today);
+  $('adLink').href = CONFIG.adContactUrl;
+  $('payPrice').textContent = CONFIG.pdfPrice;
+  $('getPdf').textContent = `Pobierz wniosek PDF (${CONFIG.pdfPrice})`;
+  $('buyCoffee').href = CONFIG.buyCoffeeUrl;
+  if (/TWOJ-PROFIL/.test(CONFIG.buyCoffeeUrl)) $('payConfigWarn').classList.remove('hidden');
+
+  renderRateTable();
+  $('calcForm').addEventListener('input', updateCalc);
+  $('calcForm').addEventListener('change', updateCalc);
+  updateCalc();
+
+  $('appealForm').addEventListener('input', e => {
+    e.target.removeAttribute('aria-invalid');
+    updateAppeal();
+  });
+  $('appealForm').addEventListener('change', e => {
+    if (e.target.dataset.att != null) attOverrides[e.target.dataset.att] = e.target.checked;
+    if (e.target.dataset.custom != null) customAtt[+e.target.dataset.custom].on = e.target.checked;
+    updateAppeal();
+  });
+  $('addAtt').addEventListener('click', () => {
+    const label = $('a-customAtt').value.trim();
+    if (!label) return;
+    customAtt.push({ label, on: true });
+    $('a-customAtt').value = '';
+    updateAppeal();
+  });
+  $('a-customAtt').addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); $('addAtt').click(); }
+  });
+  $('a-controlDate').addEventListener('change', () => {
+    if (!$('a-payDate').value) $('a-payDate').value = $('a-controlDate').value;
+  });
+  updateAppeal();
+
+  $('getPdf').addEventListener('click', openPay);
+  $('payClose').addEventListener('click', () => $('payDialog').close());
+  $('buyCoffee').addEventListener('click', () => { $('payConfirm').disabled = false; });
+  $('payConfirm').addEventListener('change', e => { $('payDownload').disabled = !e.target.checked; });
+  $('payDownload').addEventListener('click', () => {
+    downloadPdf();
+    $('payDialog').close();
+  });
+}
+
+init();
+</script>
+</body>
+</html>
