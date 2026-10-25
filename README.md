@@ -1,6 +1,6 @@
 # Kalkulator SPP Łódź 2026 + Generator wniosku w sprawie opłaty dodatkowej 300 zł (ZDiT)
 
-Aplikacja w jednym pliku (`index.html`), działająca w całości w przeglądarce. Bez serwera, bez zbierania danych.
+Statyczna strona (`index.html` + `assets/` + `vendor/`), działająca w całości w przeglądarce. Bez serwera, bez zbierania danych.
 
 ## Funkcje
 
@@ -31,7 +31,7 @@ Podstawa: uchwała nr XIII/329/25 Rady Miejskiej w Łodzi z 15.01.2025 r. (z pó
 
 ## Konfiguracja
 
-W `index.html`, na początku skryptu:
+W `assets/app.js`, na początku pliku:
 
 ```js
 const CONFIG = {
@@ -40,6 +40,17 @@ const CONFIG = {
   adContactUrl: 'mailto:reklama@example.com?...'
 };
 ```
+
+## Bezpieczeństwo
+
+- Brak zewnętrznych skryptów: CSS jest skompilowany (`assets/app.css`), a pdfmake 0.2.23 leży w `vendor/`. Strona nie łączy się z żadnym obcym serwerem.
+- Content Security Policy: dozwolone są wyłącznie pliki z własnej domeny; brak skryptów inline, `connect-src 'none'`, `form-action 'none'`.
+- Wszystkie dane z formularza są escapowane przed wstawieniem do HTML (test XSS: brak wykonania kodu).
+- Linki z `CONFIG` przyjmują tylko `https://` lub `mailto:`.
+- Blokada wyświetlania strony w cudzej ramce (clickjacking).
+- Strona nie przechowuje ani nie wysyła danych osobowych.
+
+Przebudowa CSS po zmianie klas: `npx @tailwindcss/cli@4.1.18 -i src/input.css -o assets/app.css --minify` (wymaga `npm i tailwindcss@4.1.18 @tailwindcss/cli@4.1.18`).
 
 ## Publikacja
 
