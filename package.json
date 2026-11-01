@@ -1,0 +1,11 @@
+{
+  "name": "kalkulator-spp-lodz",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Kalkulator SPP Łódź 2026 + generator wniosku PDF do ZDiT w sprawie opłaty dodatkowej 300 zł.",
+  "scripts": {
+    "test:verify": "node tests/verify.test.mjs",
+    "test:e2e": "node tests/e2e.test.js",
+    "test": "node tests/verify.test.mjs && node tests/e2e.test.js"
+  }
+}
