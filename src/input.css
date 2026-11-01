@@ -1,6 +1,6 @@
 @import "tailwindcss" source(none);
-@source "../index.html";
-@source "../assets/app.js";
+@source "../public/index.html";
+@source "../public/assets/app.js";
 
   @theme {
     --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
