@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalkulator Strefy Płatnego Parkowania (SPP) Łódź 2026 + Generator Odwołania od Opłaty Dodatkowej 300 zł (ZDiT)</title>
+<meta name="description" content="Kalkulator SPP Łódź 2026: koszt postoju w podstrefach A, B i C co do minuty, stawki Łodzianina i przyjezdnego, koszt miesięczny i roczny, opłacalność abonamentu mieszkańca 365 zł. Generator wniosku PDF do ZDiT w sprawie opłaty dodatkowej 300 zł.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1d4ed8">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Kalkulator SPP Łódź 2026 + wniosek do ZDiT w sprawie opłaty dodatkowej 300 zł">
+<meta property="og:description" content="Policz dokładny koszt parkowania w Strefie Płatnego Parkowania w Łodzi i przygotuj wniosek PDF do ZDiT w sprawie opłaty dodatkowej 300 zł.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d4ed8'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='700'%3EP%3C/text%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="assets/app.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kalkulator Strefy Płatnego Parkowania (SPP) Łódź 2026 + Generator wniosku w sprawie opłaty dodatkowej 300 zł (ZDiT)",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Dowolny (przeglądarka internetowa)",
+  "inLanguage": "pl-PL",
+  "isAccessibleForFree": true,
+  "description": "Kalkulator kosztów parkowania w Strefie Płatnego Parkowania w Łodzi (podstrefy A, B, C) z naliczaniem co do minuty, prognozą miesięczną i roczną, porównaniem stawki Łodzianina i przyjezdnego oraz abonamentu mieszkańca 365 zł, a także generator wniosku PDF do Zarządu Dróg i Transportu w Łodzi w sprawie opłaty dodatkowej 300 zł. Działa w całości w przeglądarce.",
+  "spatialCoverage": { "@type": "Place", "name": "Łódź, Polska" },
+  "featureList": [
+    "Koszt pojedynczego postoju w podstrefach A, B i C z rozbiciem na godziny i minuty",
+    "Automatyczne pomijanie godzin poza 7:00–19:00, weekendów i świąt ustawowych",
+    "Zwolnienie pojazdów elektrycznych (BEV)",
+    "Prognoza kosztu miesięcznego i rocznego",
+    "Różnica między stawką Łodzianina a stawką przyjezdnego",
+    "Porównanie z abonamentem mieszkańca strefy 365 zł rocznie",
+    "Generator wniosku PDF do ZDiT Łódź w sprawie opłaty dodatkowej 300 zł z listą załączników i terminem 14 dni"
+  ],
+  "offers": [
+    { "@type": "Offer", "name": "Kalkulator kosztów parkowania SPP Łódź", "price": "0", "priceCurrency": "PLN" },
+    { "@type": "Offer", "name": "Wniosek PDF do ZDiT Łódź w sprawie opłaty dodatkowej", "price": "9.99", "priceCurrency": "PLN" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "W jakich godzinach obowiązuje Strefa Płatnego Parkowania w Łodzi w 2026 roku?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Od poniedziałku do piątku w godzinach 7:00–19:00. W soboty, niedziele i święta ustawowo wolne od pracy postój jest bezpłatny." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile kosztuje parkowanie w podstrefach A, B i C w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Podstrefa A: Łodzianin 6,00 zł / 7,20 zł / 8,60 zł za 1., 2. i 3. godzinę oraz 6,00 zł za 4. i każdą kolejną; przyjezdny 6,90 zł / 8,20 zł / 9,80 zł oraz 6,90 zł. Podstrefy B i C: Łodzianin 5,00 zł / 6,00 zł / 7,20 zł oraz 5,00 zł; przyjezdny 6,00 zł / 7,20 zł / 8,60 zł oraz 6,00 zł." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kto płaci w łódzkiej SPP stawkę Łodzianina?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pojazdy z tablicami rejestracyjnymi EL oraz pojazdy zgłoszone do Zarządu Dróg i Transportu w Łodzi przez mieszkańców Łodzi korzystających z innych tablic, np. samochody w leasingu zarejestrowane poza Łodzią. Pozostali kierowcy płacą stawkę dla przyjezdnych." }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy samochody elektryczne płacą za parkowanie w SPP w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nie. Pojazdy elektryczne w rozumieniu art. 2 pkt 12 ustawy z dnia 11 stycznia 2018 r. o elektromobilności i paliwach alternatywnych są zwolnione z opłat za postój w strefie płatnego parkowania na podstawie art. 13 ust. 3 ustawy o drogach publicznych. Hybrydy, w tym hybrydy plug-in, płacą." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile wynosi opłata dodatkowa za brak biletu w SPP w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "300 zł. Opłata dodatkowa powstaje z mocy prawa, gdy postój nie zostanie opłacony albo opłacony czas zostanie przekroczony. Termin zapłaty wynosi 14 dni." }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak odwołać się od opłaty dodatkowej 300 zł w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Po otrzymaniu raportu z kontroli można złożyć do Zarządu Dróg i Transportu w Łodzi (ul. J. Tuwima 36, 90-002 Łódź) wniosek o wyjaśnienie powstania opłaty dodatkowej, listownie, w kancelarii lub przez e-Doręczenia. Nie jest to tryb odwoławczy: według Urzędu Miasta Łodzi od odpowiedzi ZDiT nie przysługuje dalsza droga odwoławcza, a zarzuty można wnieść dopiero na etapie egzekucji administracyjnej." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile kosztuje abonament mieszkańca strefy w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "365 zł za rok, czyli 1 zł dziennie. Abonament jest przeznaczony dla mieszkańców obszaru Strefy Płatnego Parkowania; warunki określa uchwała Rady Miejskiej w Łodzi i regulamin ZDiT." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile mam czasu na opłacenie postoju po zaparkowaniu w Łodzi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Opłatę wnosi się niezwłocznie, nie później niż w ciągu 5 minut od zaparkowania." }
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="bg-slate-100 font-sans text-slate-900 antialiased">
+
+<header class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3" aria-label="Główna nawigacja">
+    <a href="#" class="flex items-center gap-2 font-bold text-slate-900">
+      <span class="grid h-8 w-8 place-items-center rounded-md bg-brand-700 text-lg font-extrabold text-white" aria-hidden="true">P</span>
+      <span class="hidden sm:inline">SPP Łódź 2026</span>
+    </a>
+    <div class="ml-auto flex gap-1 overflow-x-auto text-sm font-medium">
+      <a class="whitespace-nowrap rounded-md px-3 py-1.5 text-slate-700 hover:bg-slate-100" href="#kalkulator">Kalkulator</a>
+      <a class="whitespace-nowrap rounded-md px-3 py-1.5 text-slate-700 hover:bg-slate-100" href="#stawki">Stawki</a>
+      <a class="whitespace-nowrap rounded-md px-3 py-1.5 text-slate-700 hover:bg-slate-100" href="#wniosek">Opłata 300 zł</a>
+      <a class="whitespace-nowrap rounded-md px-3 py-1.5 text-slate-700 hover:bg-slate-100" href="#faq">FAQ</a>
+    </div>
+  </nav>
+</header>
+
+<main class="mx-auto max-w-6xl px-4 pb-16">
+
+  <!-- HERO -->
+  <section class="py-8 sm:py-12">
+    <h1 class="text-2xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+      Kalkulator Strefy Płatnego Parkowania (SPP) Łódź 2026
+      <span class="block text-brand-700">+ Generator odwołania od opłaty dodatkowej 300 zł (ZDiT)</span>
+    </h1>
+    <p class="mt-4 max-w-3xl text-slate-600">
+      Policz co do minuty koszt postoju w podstrefach A, B i C, sprawdź, ile kosztuje Cię brak statusu Łodzianina,
+      i porównaj wydatki z abonamentem mieszkańca. Jeśli dostałeś raport z kontroli z opłatą dodatkową 300 zł, przygotuj
+      wniosek do Zarządu Dróg i Transportu w Łodzi w formacie PDF. Wszystkie obliczenia działają w przeglądarce, a dane
+      z formularzy nie są nigdzie wysyłane.
+    </p>
+    <ul class="mt-6 flex flex-wrap gap-2 text-sm">
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Pn–Pt <strong>7:00–19:00</strong></li>
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Weekendy i święta: <strong>0 zł</strong></li>
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Elektryki (BEV): <strong>0 zł</strong></li>
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Opłata dodatkowa: <strong>300 zł / 14 dni</strong></li>
+      <li class="rounded-full border border-slate-200 bg-white px-3 py-1">Abonament mieszkańca: <strong>365 zł / rok</strong></li>
+    </ul>
+  </section>
+
+  <!-- FEATURE 1: CALCULATOR -->
+  <section id="kalkulator" class="scroll-mt-20" aria-labelledby="calc-h">
+    <h2 id="calc-h" class="text-xl font-bold sm:text-2xl">Precyzyjny kalkulator postoju i abonamentu SPP Łódź</h2>
+    <div class="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-5">
+
+      <form id="calcForm" class="card space-y-5 lg:col-span-2" novalidate>
+        <fieldset>
+          <legend class="lbl">Podstrefa</legend>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="seg"><input class="sr-only" type="radio" name="zone" value="A" checked>A</label>
+            <label class="seg"><input class="sr-only" type="radio" name="zone" value="B">B</label>
+            <label class="seg"><input class="sr-only" type="radio" name="zone" value="C">C</label>
+          </div>
+          <p id="zoneDesc" class="hint"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend class="lbl">Status kierowcy</legend>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="seg"><input class="sr-only" type="radio" name="status" value="lodzianin" checked>Łodzianin (EL / ZDiT)</label>
+            <label class="seg"><input class="sr-only" type="radio" name="status" value="przyjezdny">Przyjezdny / leasing</label>
+          </div>
+          <p class="hint">„Przyjezdny” obejmuje też auta mieszkańców Łodzi na obcych tablicach (np. leasing WE, DW, PO), które nie zostały zgłoszone do ZDiT.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend class="lbl">Napęd</legend>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="seg"><input class="sr-only" type="radio" name="engine" value="ice" checked>Spalinowy / hybryda</label>
+            <label class="seg"><input class="sr-only" type="radio" name="engine" value="bev">Elektryczny (BEV)</label>
+          </div>
+        </fieldset>
+
+        <div>
+          <label class="lbl" for="parkDate">Dzień postoju</label>
+          <input class="field" type="date" id="parkDate">
+          <p class="hint">Soboty, niedziele i święta ustawowe są wykrywane automatycznie.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="lbl" for="tStart">Początek postoju</label>
+            <input class="field tnum" type="time" id="tStart" value="08:00" step="60">
+          </div>
+          <div>
+            <label class="lbl" for="tEnd">Koniec postoju</label>
+            <input class="field tnum" type="time" id="tEnd" value="16:00" step="60">
+          </div>
+        </div>
+        <p class="hint -mt-3">Czas przed 7:00 i po 19:00 jest pomijany.</p>
+
+        <div>
+          <label class="lbl" for="days">Dni parkowania w miesiącu: <span id="daysOut" class="tnum font-bold text-brand-700">20</span></label>
+          <input class="w-full accent-brand-700" type="range" id="days" min="1" max="22" value="20">
+          <div class="flex justify-between text-xs text-slate-500"><span>1</span><span>22</span></div>
+        </div>
+      </form>
+
+      <div class="space-y-6 lg:col-span-3" aria-live="polite">
+        <p id="calcError" class="hidden rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800" role="alert"></p>
+
+        <div class="card">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <p class="text-sm font-medium text-slate-500">Koszt pojedynczego postoju</p>
+              <p id="stayTotal" class="tnum text-4xl font-extrabold tracking-tight">0,00 zł</p>
+              <p id="stayMeta" class="mt-1 text-sm text-slate-600"></p>
+            </div>
+            <span id="dayBadge" class="rounded-full px-3 py-1 text-xs font-semibold"></span>
+          </div>
+          <div class="mt-4 overflow-x-auto">
+            <table class="w-full whitespace-nowrap text-left text-sm">
+              <thead class="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-500">
+                <tr><th class="py-2 pr-3">Godz.</th><th class="py-2 pr-3">Przedział</th><th class="py-2 pr-3 text-right">Minuty</th><th class="hidden py-2 pr-3 text-right sm:table-cell">Stawka</th><th class="py-2 text-right">Kwota</th></tr>
+              </thead>
+              <tbody id="breakdown" class="tnum divide-y divide-slate-100"></tbody>
+            </table>
+          </div>
+          <p class="hint">Niepełna godzina jest liczona proporcjonalnie do minut. Aplikacje i parkomaty mogą stosować minimalny czas postoju oraz własne zaokrąglenia.</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div class="stat"><p class="text-xs font-medium text-slate-500">Dzień roboczy</p><p id="perDay" class="tnum text-xl font-bold">0,00 zł</p></div>
+          <div class="stat"><p class="text-xs font-medium text-slate-500">Miesiąc (<span id="daysOut2">20</span> dni)</p><p id="monthly" class="tnum text-xl font-bold">0,00 zł</p></div>
+          <div class="stat"><p class="text-xs font-medium text-slate-500">Rok (12 miesięcy)</p><p id="annual" class="tnum text-xl font-bold">0,00 zł</p></div>
+        </div>
+
+        <div id="lossCard" class="card border-amber-300 bg-amber-50">
+          <h3 class="font-bold text-amber-900">Ile tracisz na braku statusu Łodzianina (tablice spoza Łodzi, np. leasing WE/DW/PO)</h3>
+          <p id="lossLead" class="mt-1 text-sm text-amber-900"></p>
+          <div class="mt-3 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-lg bg-white/70 p-3"><p class="text-xs text-amber-800">Dziennie</p><p id="lossDay" class="tnum text-lg font-bold text-amber-950">0,00 zł</p></div>
+            <div class="rounded-lg bg-white/70 p-3"><p class="text-xs text-amber-800">Miesięcznie</p><p id="lossMonth" class="tnum text-lg font-bold text-amber-950">0,00 zł</p></div>
+            <div class="rounded-lg bg-white/70 p-3"><p class="text-xs text-amber-800">Rocznie</p><p id="lossYear" class="tnum text-lg font-bold text-amber-950">0,00 zł</p></div>
+          </div>
+          <p class="mt-3 text-xs text-amber-900">Mieszkaniec Łodzi z tablicami innymi niż EL (np. auto w leasingu) może zgłosić pojazd do ZDiT, aby płacić stawkę Łodzianina. Warunki i wymagane dokumenty określa ZDiT.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="font-bold">Abonament mieszkańca strefy: 365 zł / rok</h3>
+          <p id="aboLead" class="mt-1 text-sm text-slate-600"></p>
+          <div class="mt-3 grid gap-3 sm:grid-cols-3">
+            <div class="stat"><p class="text-xs text-slate-500">Bilety w roku</p><p id="aboTickets" class="tnum text-lg font-bold">0,00 zł</p></div>
+            <div class="stat"><p class="text-xs text-slate-500">Abonament</p><p class="tnum text-lg font-bold">365,00 zł</p></div>
+            <div class="stat"><p class="text-xs text-slate-500">Oszczędność z abonamentem</p><p id="aboDiff" class="tnum text-lg font-bold">0,00 zł</p></div>
+          </div>
+          <p id="aboBreak" class="mt-3 text-sm font-medium"></p>
+          <p class="hint">Abonament mieszkańca jest przeznaczony wyłącznie dla mieszkańców obszaru SPP i obowiązuje na zasadach z uchwały Rady Miejskiej w Łodzi oraz regulaminu ZDiT. Sprawdź, czy obejmuje miejsce, w którym parkujesz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATE TABLE -->
+  <section id="stawki" class="scroll-mt-20 pt-12" aria-labelledby="rates-h">
+    <h2 id="rates-h" class="text-xl font-bold sm:text-2xl">Stawki SPP Łódź 2026</h2>
+    <p class="mt-2 max-w-3xl text-sm text-slate-600">Opłata progresywna za 1., 2. i 3. godzinę, a od 4. godziny powrót do stawki za pierwszą godzinę. Dla postoju trwającego co najmniej 3 godziny koszt dzienny wynosi C(h) = r₁ + r₂ + r₃ + (h − 3) · r₄, gdzie r₄ = r₁.</p>
+    <div class="card mt-4 overflow-x-auto p-0 sm:p-0">
+      <table class="w-full min-w-[640px] text-left text-sm">
+        <thead class="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+          <tr>
+            <th class="px-4 py-3">Podstrefa</th><th class="px-4 py-3">Status</th>
+            <th class="px-4 py-3 text-right">1. godz.</th><th class="px-4 py-3 text-right">2. godz.</th><th class="px-4 py-3 text-right">3. godz.</th>
+            <th class="px-4 py-3 text-right">Suma 3 h</th><th class="px-4 py-3 text-right">4. i kolejna</th><th class="px-4 py-3 text-right">12 h (7–19)</th>
+          </tr>
+        </thead>
+        <tbody id="rateTable" class="tnum divide-y divide-slate-100"></tbody>
+      </table>
+    </div>
+    <dl class="mt-4 grid gap-3 text-sm sm:grid-cols-3">
+      <div class="card p-4 sm:p-4"><dt class="font-semibold">Podstrefa A</dt><dd class="text-slate-600">Ścisłe centrum: ul. Piotrkowska, Park Moniuszki, Galeria Łódzka.</dd></div>
+      <div class="card p-4 sm:p-4"><dt class="font-semibold">Podstrefa B</dt><dd class="text-slate-600">Pozostałe Śródmieście, Radiostacja, okolice Orientarium ZOO i Aquaparku Fala.</dd></div>
+      <div class="card p-4 sm:p-4"><dt class="font-semibold">Podstrefa C</dt><dd class="text-slate-600">Bałucki Rynek.</dd></div>
+    </dl>
+    <p class="hint">Dokładne granice podstref wyznacza mapa ZDiT i oznakowanie D-44 na miejscu.</p>
+  </section>
+
+  <!-- PARTNER SLOT: tylko prawdziwy, skonfigurowany partner (config.js → partner) -->
+  <aside class="mt-12 rounded-2xl border-2 border-dashed border-slate-300 bg-white p-6 text-center" aria-label="Partner">
+    <div id="partnerEmpty">
+      <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">Partner</p>
+      <p class="mt-2 text-lg font-bold">Miejsce dla partnera – kontakt</p>
+      <p class="mx-auto mt-1 max-w-xl text-sm text-slate-600">To miejsce jest wolne. Jeśli chcesz tu zaprezentować swoją ofertę dla kierowców w Łodzi, skontaktuj się z nami.</p>
+      <a id="adLink" class="btn btn-ghost mt-4" href="#">Kontakt w sprawie współpracy</a>
+    </div>
+    <div id="partnerBox" hidden>
+      <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">Partner serwisu · link sponsorowany</p>
+      <p id="partnerName" class="mt-2 text-lg font-bold"></p>
+      <p id="partnerText" class="mx-auto mt-1 max-w-xl text-sm text-slate-600"></p>
+      <a id="partnerLink" class="btn btn-ghost mt-4" href="#">Zobacz ofertę</a>
+    </div>
+  </aside>
+
+  <!-- FEATURE 2: APPEAL GENERATOR -->
+  <section id="wniosek" class="scroll-mt-20 pt-12" aria-labelledby="appeal-h">
+    <h2 id="appeal-h" class="text-xl font-bold sm:text-2xl">Generator reklamacji / odwołania od opłaty dodatkowej 300 zł (ZDiT Łódź)</h2>
+    <div class="mt-3 max-w-4xl rounded-xl border border-brand-100 bg-brand-50 p-4 text-sm text-brand-900">
+      Formalnie jest to <strong>wniosek o wyjaśnienie powstania opłaty dodatkowej</strong> kierowany do Zarządu Dróg i Transportu w Łodzi.
+      Według Urzędu Miasta Łodzi nie jest to tryb odwoławczy i od odpowiedzi ZDiT nie przysługuje dalsza droga odwoławcza;
+      zarzuty można wnieść dopiero na etapie egzekucji, po doręczeniu odpisu tytułu wykonawczego. Wniosek najlepiej złożyć
+      bezpośrednio po otrzymaniu raportu z kontroli. Generator nie jest poradą prawną.
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-5">
+      <form id="appealForm" class="space-y-6 lg:col-span-3" novalidate>
+
+        <fieldset class="card space-y-4">
+          <legend class="sr-only">Dane wnioskodawcy</legend>
+          <h3 class="font-bold">1. Twoje dane</h3>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="lbl" for="a-gender">Forma gramatyczna pisma</label>
+              <select class="field" id="a-gender"><option value="m">Pan (np. „uiściłem”)</option><option value="f">Pani (np. „uiściłam”)</option></select>
+            </div>
+            <div>
+              <label class="lbl" for="a-name">Imię i nazwisko *</label>
+              <input class="field" id="a-name" autocomplete="name">
+            </div>
+            <div>
+              <label class="lbl" for="a-street">Ulica i numer *</label>
+              <input class="field" id="a-street" autocomplete="street-address">
+            </div>
+            <div>
+              <label class="lbl" for="a-city">Kod pocztowy i miejscowość *</label>
+              <input class="field" id="a-city" placeholder="90-001 Łódź">
+            </div>
+            <div>
+              <label class="lbl" for="a-email">E-mail</label>
+              <input class="field" id="a-email" type="email" autocomplete="email">
+            </div>
+            <div>
+              <label class="lbl" for="a-phone">Telefon</label>
+              <input class="field" id="a-phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="card space-y-4">
+          <legend class="sr-only">Dane z raportu z kontroli</legend>
+          <h3 class="font-bold">2. Dane z raportu z kontroli</h3>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="lbl" for="a-reportNo">Numer raportu / opłaty dodatkowej *</label>
+              <input class="field" id="a-reportNo">
+            </div>
+            <div>
+              <label class="lbl" for="a-plate">Nr rejestracyjny pojazdu (z raportu) *</label>
+              <input class="field uppercase" id="a-plate" placeholder="EL 12345">
+            </div>
+            <div>
+              <label class="lbl" for="a-controlDate">Data kontroli *</label>
+              <input class="field" id="a-controlDate" type="date">
+            </div>
+            <div>
+              <label class="lbl" for="a-controlTime">Godzina kontroli</label>
+              <input class="field" id="a-controlTime" type="time">
+            </div>
+            <div>
+              <label class="lbl" for="a-place">Miejsce postoju (ulica) *</label>
+              <input class="field" id="a-place" placeholder="ul. Piotrkowska 100">
+            </div>
+            <div>
+              <label class="lbl" for="a-zone">Podstrefa</label>
+              <select class="field" id="a-zone"><option value="">nie wiem</option><option>A</option><option>B</option><option>C</option></select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="card space-y-4">
+          <legend class="sr-only">Podstawa wniosku</legend>
+          <h3 class="font-bold">3. Podstawa wniosku *</h3>
+          <div class="space-y-2" id="reasonGroup">
+            <label class="flex cursor-pointer gap-3 rounded-lg border border-slate-200 p-3 has-checked:border-brand-700 has-checked:bg-brand-50">
+              <input type="radio" name="reason" value="typo" class="mt-1 accent-brand-700" checked>
+              <span class="text-sm"><strong>Omyłka pisarska w numerze rejestracyjnym</strong><br><span class="text-slate-600">Np. bilet opłacony w aplikacji AnyPark, SkyCash lub mPay na drugi samochód albo zamiana znaków w tablicy (0 i O).</span></span>
+            </label>
+            <label class="flex cursor-pointer gap-3 rounded-lg border border-slate-200 p-3 has-checked:border-brand-700 has-checked:bg-brand-50">
+              <input type="radio" name="reason" value="sync" class="mt-1 accent-brand-700">
+              <span class="text-sm"><strong>Bilet wykupiony w aplikacji w momencie kontroli</strong><br><span class="text-slate-600">Opóźnienie synchronizacji z systemem skanującym e-kontroli.</span></span>
+            </label>
+            <label class="flex cursor-pointer gap-3 rounded-lg border border-slate-200 p-3 has-checked:border-brand-700 has-checked:bg-brand-50">
+              <input type="radio" name="reason" value="exempt" class="mt-1 accent-brand-700">
+              <span class="text-sm"><strong>Ważny abonament lub zwolnienie ustawowe</strong><br><span class="text-slate-600">Pojazd elektryczny BEV, abonament albo karta parkingowa.</span></span>
+            </label>
+            <label class="flex cursor-pointer gap-3 rounded-lg border border-slate-200 p-3 has-checked:border-brand-700 has-checked:bg-brand-50">
+              <input type="radio" name="reason" value="meter" class="mt-1 accent-brand-700">
+              <span class="text-sm"><strong>Awaria parkomatu i brak możliwości wniesienia opłaty</strong></span>
+            </label>
+          </div>
+
+          <datalist id="apps"><option value="AnyPark"><option value="mPay"><option value="moBILET"><option value="SkyCash"></datalist>
+
+          <div data-reason="typo" class="space-y-4 border-t border-slate-200 pt-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div><label class="lbl" for="a-app">Aplikacja *</label><input class="field" id="a-app" list="apps"></div>
+              <div><label class="lbl" for="a-tx">Nr transakcji / biletu</label><input class="field" id="a-tx"></div>
+              <div><label class="lbl" for="a-payDate">Data płatności *</label><input class="field" id="a-payDate" type="date"></div>
+              <div><label class="lbl" for="a-payTime">Godzina płatności</label><input class="field" id="a-payTime" type="time"></div>
+              <div><label class="lbl" for="a-paidFrom">Opłacony postój od</label><input class="field" id="a-paidFrom" type="time"></div>
+              <div><label class="lbl" for="a-paidTo">Opłacony postój do</label><input class="field" id="a-paidTo" type="time"></div>
+              <div><label class="lbl" for="a-amount">Kwota (zł)</label><input class="field" id="a-amount" inputmode="decimal" placeholder="12,40"></div>
+              <div><label class="lbl" for="a-wrongPlate">Numer wpisany przy płatności *</label><input class="field uppercase" id="a-wrongPlate" placeholder="EL 1234O"></div>
+            </div>
+            <div>
+              <label class="lbl" for="a-typoKind">Rodzaj pomyłki</label>
+              <select class="field" id="a-typoKind">
+                <option value="vehicle">Wybrany drugi pojazd zapisany w aplikacji</option>
+                <option value="chars">Zamiana podobnych znaków (np. 0 i O)</option>
+                <option value="other">Inna omyłka</option>
+              </select>
+            </div>
+            <label class="flex items-start gap-2 text-sm"><input type="checkbox" id="a-otherNotParked" class="mt-1 accent-brand-700">
+              <span>Pojazd o numerze wpisanym przy płatności nie stał w tym czasie w SPP</span></label>
+          </div>
+
+          <div data-reason="sync" class="hidden space-y-4 border-t border-slate-200 pt-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div><label class="lbl" for="a-sApp">Aplikacja *</label><input class="field" id="a-sApp" list="apps"></div>
+              <div><label class="lbl" for="a-sTx">Nr transakcji / biletu</label><input class="field" id="a-sTx"></div>
+              <div><label class="lbl" for="a-parkTime">Godzina zaparkowania *</label><input class="field" id="a-parkTime" type="time"></div>
+              <div><label class="lbl" for="a-sPayTime">Godzina uruchomienia biletu *</label><input class="field" id="a-sPayTime" type="time"></div>
+              <div><label class="lbl" for="a-sAmount">Kwota (zł)</label><input class="field" id="a-sAmount" inputmode="decimal"></div>
+            </div>
+            <p id="syncWarn" class="hidden rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900"></p>
+          </div>
+
+          <div data-reason="exempt" class="hidden space-y-4 border-t border-slate-200 pt-4">
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-3">
+              <label class="seg"><input class="sr-only" type="radio" name="exemptType" value="bev" checked>Pojazd elektryczny</label>
+              <label class="seg"><input class="sr-only" type="radio" name="exemptType" value="permit">Abonament</label>
+              <label class="seg"><input class="sr-only" type="radio" name="exemptType" value="card">Karta parkingowa</label>
+            </div>
+            <p data-exempt="bev" class="text-sm text-slate-600">Zwolnienie dotyczy pojazdów napędzanych wyłącznie energią elektryczną. Hybrydy, w tym plug-in, nie są zwolnione. Dołącz dowód rejestracyjny z rodzajem paliwa „energia elektryczna”.</p>
+            <div data-exempt="permit" class="hidden grid gap-4 sm:grid-cols-3">
+              <div><label class="lbl" for="a-permitNo">Nr abonamentu *</label><input class="field" id="a-permitNo"></div>
+              <div><label class="lbl" for="a-permitFrom">Ważny od</label><input class="field" id="a-permitFrom" type="date"></div>
+              <div><label class="lbl" for="a-permitTo">Ważny do</label><input class="field" id="a-permitTo" type="date"></div>
+              <p class="hint sm:col-span-3">Sprawdź, czy abonament obejmował podstrefę i miejsce postoju.</p>
+            </div>
+            <div data-exempt="card" class="hidden">
+              <label class="lbl" for="a-cardNo">Nr karty parkingowej *</label><input class="field" id="a-cardNo">
+              <p class="hint">Sprawdź w uchwale lub w ZDiT, czy uprawnienie karty obejmowało dane miejsce postoju (np. wyznaczone miejsce dla osób z niepełnosprawnościami).</p>
+            </div>
+          </div>
+
+          <div data-reason="meter" class="hidden space-y-4 border-t border-slate-200 pt-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div><label class="lbl" for="a-meterLoc">Parkomat (numer lub lokalizacja) *</label><input class="field" id="a-meterLoc" placeholder="nr 123 przy ul. Zachodniej 10"></div>
+              <div><label class="lbl" for="a-meterTime">Godzina próby płatności</label><input class="field" id="a-meterTime" type="time"></div>
+            </div>
+            <div><label class="lbl" for="a-meterIssue">Opis awarii *</label><textarea class="field" id="a-meterIssue" rows="2" placeholder="nie przyjmował karty ani monet, wyświetlał komunikat „Poza obsługą”"></textarea></div>
+            <div><label class="lbl" for="a-meterReported">Zgłoszenie awarii</label><textarea class="field" id="a-meterReported" rows="2" placeholder="Awarię zgłosiłem telefonicznie do ZDiT o godz. 9:20."></textarea></div>
+            <div><label class="lbl" for="a-meterAlt">Dlaczego nie było innej możliwości zapłaty</label><textarea class="field" id="a-meterAlt" rows="2" placeholder="Najbliższy parkomat również był nieczynny; nie posiadam smartfona z aplikacją."></textarea>
+              <p class="hint">ZDiT może wskazać, że opłatę dało się wnieść w innym parkomacie lub w aplikacji. Wyjaśnij, dlaczego nie było to możliwe.</p></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="card space-y-4">
+          <legend class="sr-only">Uzupełnienie i załączniki</legend>
+          <h3 class="font-bold">4. Uzupełnienie i załączniki</h3>
+          <div>
+            <label class="lbl" for="a-extra">Dodatkowe wyjaśnienia (opcjonalnie)</label>
+            <textarea class="field" id="a-extra" rows="3"></textarea>
+          </div>
+          <div>
+            <p class="lbl">Lista załączników</p>
+            <ul id="attList" class="space-y-2 text-sm"></ul>
+            <div class="mt-3 flex gap-2">
+              <input class="field" id="a-customAtt" placeholder="Dodaj własny załącznik">
+              <button type="button" id="addAtt" class="btn btn-ghost shrink-0">Dodaj</button>
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div><label class="lbl" for="a-letterPlace">Miejscowość pisma</label><input class="field" id="a-letterPlace" value="Łódź"></div>
+            <div><label class="lbl" for="a-letterDate">Data pisma</label><input class="field" id="a-letterDate" type="date"></div>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="space-y-6 lg:sticky lg:top-20 lg:col-span-2 lg:self-start">
+        <div class="card" id="tracker">
+          <h3 class="font-bold">Termin 14 dni</h3>
+          <p id="trackerText" class="mt-1 text-sm text-slate-600">Podaj datę kontroli, aby zobaczyć termin zapłaty opłaty dodatkowej.</p>
+          <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-slate-200"><div id="trackerBar" class="h-2 rounded-full bg-brand-700"></div></div>
+          <p class="hint">Termin liczony od daty kontroli. Sprawdź termin wskazany w raporcie. Złożenie wniosku nie jest odwołaniem i nie należy zakładać, że wstrzymuje termin zapłaty.</p>
+        </div>
+
+        <div class="card">
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="font-bold">Podgląd wniosku</h3>
+            <span class="text-xs text-slate-500">A4</span>
+          </div>
+          <div id="preview" class="paper relative mt-3 max-h-[560px] overflow-hidden rounded-lg border border-slate-200 bg-white p-5 text-[13px] leading-relaxed text-slate-900"></div>
+          <ul id="formErrors" class="mt-3 hidden list-disc space-y-1 rounded-lg border border-red-200 bg-red-50 p-3 pl-7 text-sm text-red-800" role="alert"></ul>
+          <button type="button" id="getPdf" class="btn btn-primary mt-4 w-full">Pobierz wniosek PDF</button>
+          <p class="hint text-center">Wysyłka: list polecony lub kancelaria ZDiT, ul. J. Tuwima 36, 90-002 Łódź, albo e-Doręczenia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="scroll-mt-20 pt-12" aria-labelledby="faq-h">
+    <h2 id="faq-h" class="text-xl font-bold sm:text-2xl">FAQ: Strefa Płatnego Parkowania Łódź 2026</h2>
+    <div class="mt-4 space-y-3" id="faqList">
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">W jakich godzinach obowiązuje SPP w Łodzi?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Od poniedziałku do piątku w godzinach 7:00–19:00. W soboty, niedziele i święta ustawowo wolne od pracy postój jest bezpłatny.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Ile kosztuje parkowanie w podstrefach A, B i C?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Podstrefa A: Łodzianin 6,00 / 7,20 / 8,60 zł za 1., 2. i 3. godzinę i 6,00 zł za każdą kolejną; przyjezdny 6,90 / 8,20 / 9,80 zł i 6,90 zł. Podstrefy B i C: Łodzianin 5,00 / 6,00 / 7,20 zł i 5,00 zł; przyjezdny 6,00 / 7,20 / 8,60 zł i 6,00 zł.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Kto płaci stawkę Łodzianina?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Pojazdy z tablicami EL oraz pojazdy zgłoszone do ZDiT przez mieszkańców Łodzi jeżdżących na innych tablicach, np. samochody w leasingu zarejestrowane poza Łodzią. Pozostali kierowcy płacą stawkę dla przyjezdnych.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Czy samochody elektryczne płacą?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Nie. Pojazdy elektryczne w rozumieniu art. 2 pkt 12 ustawy z dnia 11 stycznia 2018 r. o elektromobilności i paliwach alternatywnych są zwolnione z opłat za postój w SPP na podstawie art. 13 ust. 3 ustawy o drogach publicznych. Hybrydy, w tym plug-in, płacą.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Ile wynosi opłata dodatkowa za brak biletu?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">300 zł, płatne w terminie 14 dni. Opłata dodatkowa powstaje z mocy prawa, gdy postój nie zostanie opłacony albo opłacony czas zostanie przekroczony.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Jak odwołać się od opłaty dodatkowej 300 zł?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Po otrzymaniu raportu z kontroli możesz złożyć do ZDiT (ul. J. Tuwima 36, 90-002 Łódź) wniosek o wyjaśnienie powstania opłaty dodatkowej: listownie, w kancelarii lub przez e-Doręczenia. Nie jest to tryb odwoławczy. Według Urzędu Miasta Łodzi od odpowiedzi ZDiT nie przysługuje dalsza droga odwoławcza, a zarzuty można wnieść dopiero na etapie egzekucji administracyjnej.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Ile kosztuje abonament mieszkańca strefy?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">365 zł za rok, czyli 1 zł dziennie. Abonament jest przeznaczony dla mieszkańców obszaru SPP; warunki określa uchwała Rady Miejskiej w Łodzi i regulamin ZDiT.</p></details>
+      <details class="card p-0 sm:p-0"><summary class="flex cursor-pointer items-center justify-between gap-3 p-4 font-semibold">Ile mam czasu na opłacenie postoju po zaparkowaniu?<span class="chev transition" aria-hidden="true">▾</span></summary><p class="px-4 pb-4 text-sm text-slate-700">Opłatę wnosi się niezwłocznie, nie później niż w ciągu 5 minut od zaparkowania.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-slate-200 bg-white">
+  <div class="mx-auto max-w-6xl space-y-2 px-4 py-8 text-xs text-slate-500">
+    <p><strong>Źródła danych:</strong> uchwała nr XIII/329/25 Rady Miejskiej w Łodzi z dnia 15 stycznia 2025 r. w sprawie Strefy Płatnego Parkowania (z późniejszymi zmianami), ustawa z dnia 21 marca 1985 r. o drogach publicznych (art. 13, 13b, 13f), ustawa z dnia 11 stycznia 2018 r. o elektromobilności i paliwach alternatywnych, informacje Urzędu Miasta Łodzi (uml.lodz.pl). Stawki i zasady mogą się zmienić. Przed parkowaniem lub złożeniem wniosku sprawdź aktualne dane w ZDiT.</p>
+    <p>Serwis nie jest powiązany z Urzędem Miasta Łodzi ani z Zarządem Dróg i Transportu. Wyniki kalkulatora są szacunkowe. Generator tworzy wzór pisma i nie stanowi porady prawnej. Dane wpisane w formularzach pozostają w Twojej przeglądarce.</p>
+    <p class="flex flex-wrap gap-4"><button type="button" data-open="dlgTerms" class="underline hover:text-slate-800">Regulamin</button><button type="button" data-open="dlgPrivacy" class="underline hover:text-slate-800">Polityka prywatności</button><a data-contact class="underline hover:text-slate-800" href="#">Kontakt</a></p>
+  </div>
+</footer>
+
+<!-- MODAL: PŁATNOŚĆ BLIK -->
+<dialog id="dlgCheckout" class="m-auto w-[min(92vw,520px)] rounded-2xl p-0 shadow-2xl" aria-labelledby="co-h">
+  <form class="space-y-4 p-6" id="checkoutForm">
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <p class="text-xs font-bold uppercase text-brand-700">Płatność</p>
+        <h3 id="co-h" class="text-lg font-bold">Wniosek do ZDiT w PDF</h3>
+      </div>
+      <button type="button" data-close class="rounded-md px-2 text-2xl leading-none text-slate-500 hover:bg-slate-100" aria-label="Zamknij">×</button>
+    </div>
+    <div class="rounded-xl bg-slate-50 p-4 ring-1 ring-slate-200">
+      <div class="flex items-center justify-between gap-3"><span class="font-semibold">Wniosek o wyjaśnienie powstania opłaty dodatkowej</span><span class="text-2xl font-extrabold whitespace-nowrap"><span data-price>9,99 zł</span></span></div>
+      <ul class="mt-2 list-disc pl-5 text-sm text-slate-600">
+        <li>sformatowane pismo A4 do ZDiT Łódź, gotowe do podpisu</li>
+        <li>uzasadnienie dopasowane do wybranej podstawy i lista załączników</li>
+        <li>strona kontrolna z terminem 14 dni i sposobem złożenia</li>
+        <li>ponowne pobieranie poprawionych wersji przez 30 dni w tej przeglądarce</li>
+      </ul>
+    </div>
+    <div class="flex items-center gap-3 rounded-xl p-3 ring-1 ring-slate-200">
+      <span class="rounded-md bg-slate-900 px-2 py-1 text-sm font-black tracking-wider text-white">BLIK</span>
+      <span class="text-sm text-slate-600">Płatność BLIK obsługuje zewnętrzny operator płatności (Stripe). Nie podajesz nam danych płatniczych. Po opłaceniu wrócisz na tę stronę i pobierzesz PDF.</span>
+    </div>
+    <label class="flex gap-2 text-sm"><input id="coTerms" type="checkbox" class="mt-1 h-4 w-4 accent-brand-700"> <span>Akceptuję <button type="button" data-open="dlgTerms" class="underline">Regulamin</button> i zapoznałem/am się z <button type="button" data-open="dlgPrivacy" class="underline">Polityką prywatności</button>.</span></label>
+    <label class="flex gap-2 text-sm"><input id="coWithdraw" type="checkbox" class="mt-1 h-4 w-4 accent-brand-700"> <span>Żądam dostarczenia treści cyfrowej (pliku PDF) przed upływem terminu do odstąpienia od umowy i przyjmuję do wiadomości, że wraz z rozpoczęciem jej dostarczania tracę prawo odstąpienia od umowy (art. 38 pkt 13 ustawy o prawach konsumenta).</span></label>
+    <p id="coError" class="text-sm font-semibold text-red-700" role="alert" hidden></p>
+    <p id="coUnavailable" class="rounded-lg bg-slate-100 p-3 text-sm text-slate-700" hidden>Sprzedaż chwilowo niedostępna – nie pobraliśmy żadnych środków. Kalkulator i podgląd wniosku działają bezpłatnie.</p>
+    <p id="coDemo" class="rounded-lg bg-amber-50 p-3 text-sm text-amber-900 ring-1 ring-amber-200" hidden><strong>Tryb demonstracyjny (tylko localhost):</strong> link płatności nie jest skonfigurowany, więc PDF zostanie pobrany bez opłaty. Na prawdziwej domenie ten tryb jest wyłączony.</p>
+    <button type="button" id="coPay" class="btn mt-2 w-full bg-amber-400 py-3.5 text-base font-extrabold text-slate-900 hover:bg-amber-300 focus-visible:ring-amber-500">Zamawiam z obowiązkiem zapłaty – <span data-price>9,99 zł</span></button>
+    <p class="text-center text-xs text-slate-500">Sprzedawca: <span data-seller="name">[uzupełnij dane sprzedawcy]</span></p>
+  </form>
+</dialog>
+
+<!-- MODAL: REGULAMIN -->
+<dialog id="dlgTerms" class="m-auto max-h-[85vh] w-[min(92vw,760px)] rounded-2xl p-0 shadow-2xl" aria-labelledby="terms-h">
+  <div class="space-y-3 p-6 text-sm text-slate-700">
+    <div class="flex items-start justify-between gap-3"><h3 id="terms-h" class="text-lg font-bold text-slate-900">Regulamin serwisu</h3><button type="button" data-close class="rounded-md px-2 text-2xl leading-none text-slate-500 hover:bg-slate-100" aria-label="Zamknij">×</button></div>
+    <p><strong>§ 1. Usługodawca.</strong> Serwis dostępny pod adresem <span data-site-url>TWOJA-DOMENA.pl</span> prowadzi <span data-seller="name">[imię i nazwisko / firma]</span>, <span data-seller="address">[adres]</span>, e-mail: <span data-seller="email">[e-mail]</span><span data-seller="nipLine"></span> („Usługodawca”). Serwis nie jest powiązany z Urzędem Miasta Łodzi ani z Zarządem Dróg i Transportu w Łodzi.</p>
+    <p><strong>§ 2. Usługi.</strong> 1. Bezpłatnie: kalkulator kosztów postoju i abonamentu w Strefie Płatnego Parkowania w Łodzi, tabela stawek, licznik terminu i podgląd wniosku. 2. Odpłatnie: wygenerowanie pliku PDF wniosku do ZDiT w sprawie opłaty dodatkowej na podstawie danych wprowadzonych przez Użytkownika, w cenie <span data-price>9,99 zł</span> brutto. 3. Serwis ma charakter informacyjny i nie stanowi porady prawnej. Usługodawca nie gwarantuje anulowania opłaty dodatkowej ani określonego rozstrzygnięcia ZDiT; za treść danych wprowadzonych do pisma odpowiada Użytkownik.</p>
+    <p><strong>§ 3. Wymagania techniczne.</strong> Urządzenie z dostępem do internetu, aktualna przeglądarka z włączoną obsługą JavaScript i możliwość zapisu plików PDF.</p>
+    <p><strong>§ 4. Zawarcie umowy i płatność.</strong> Umowa o dostarczenie treści cyfrowej zostaje zawarta z chwilą złożenia zamówienia przyciskiem „Zamawiam z obowiązkiem zapłaty”. Płatności BLIK obsługuje zewnętrzny operator płatności. Treść cyfrowa jest dostarczana niezwłocznie po potwierdzeniu płatności – przez udostępnienie pobrania pliku PDF w przeglądarce Użytkownika; dostęp do ponownego pobierania trwa 30 dni w tej samej przeglądarce, w której złożono zamówienie.</p>
+    <p><strong>§ 5. Odstąpienie od umowy.</strong> Konsumentowi przysługuje prawo odstąpienia od umowy w terminie 14 dni. Prawo to nie przysługuje, jeżeli dostarczanie treści cyfrowej rozpoczęło się za wyraźną i uprzednią zgodą konsumenta, który został poinformowany przed rozpoczęciem świadczenia, że po jego spełnieniu utraci prawo odstąpienia od umowy, i przyjął to do wiadomości, a Usługodawca przekazał potwierdzenie zawarcia umowy (art. 38 pkt 13 ustawy z dnia 30 maja 2014 r. o prawach konsumenta).</p>
+    <p><strong>§ 6. Reklamacje.</strong> Reklamacje, w tym dotyczące zgodności treści cyfrowej z umową, można składać na adres e-mail Usługodawcy. Usługodawca odpowiada na reklamację w terminie 14 dni od jej otrzymania.</p>
+    <p><strong>§ 7. Postanowienia końcowe.</strong> Do umów stosuje się prawo polskie. Konsument może skorzystać z pozasądowych sposobów rozpatrywania sporów, m.in. z pomocy miejskiego lub powiatowego rzecznika konsumentów albo Inspekcji Handlowej. Zasady przetwarzania danych określa Polityka prywatności.</p>
+    <p class="text-xs text-slate-400">Wzór regulaminu – właściciel serwisu powinien go zweryfikować i dostosować przed uruchomieniem sprzedaży.</p>
+  </div>
+</dialog>
+
+<!-- MODAL: POLITYKA PRYWATNOŚCI -->
+<dialog id="dlgPrivacy" class="m-auto max-h-[85vh] w-[min(92vw,760px)] rounded-2xl p-0 shadow-2xl" aria-labelledby="privacy-h">
+  <div class="space-y-3 p-6 text-sm text-slate-700">
+    <div class="flex items-start justify-between gap-3"><h3 id="privacy-h" class="text-lg font-bold text-slate-900">Polityka prywatności</h3><button type="button" data-close class="rounded-md px-2 text-2xl leading-none text-slate-500 hover:bg-slate-100" aria-label="Zamknij">×</button></div>
+    <p><strong>Administrator.</strong> Administratorem danych jest <span data-seller="name">[imię i nazwisko / firma]</span>, <span data-seller="address">[adres]</span>, e-mail: <span data-seller="email">[e-mail]</span>.</p>
+    <p><strong>Dane w formularzach.</strong> Dane wpisywane do kalkulatora i generatora wniosku (imię i nazwisko, adres, numer rejestracyjny, numer raportu z kontroli itp.) są przetwarzane wyłącznie lokalnie w Twojej przeglądarce i nie są przesyłane do Administratora. Plik PDF jest generowany na Twoim urządzeniu. Formularz jest przechowywany wyłącznie w pamięci bieżącej karty przeglądarki (sessionStorage), aby nie zniknął podczas płatności, i jest usuwany po zamknięciu karty.</p>
+    <p><strong>Płatności.</strong> Płatność obsługuje zewnętrzny operator płatności (Stripe), który przetwarza dane płatnicze jako odrębny administrator. Administrator otrzymuje od operatora dane transakcji (np. adres e-mail, kwotę, identyfikator płatności) w celu wykonania umowy (art. 6 ust. 1 lit. b RODO) oraz realizacji obowiązków podatkowych i rachunkowych (art. 6 ust. 1 lit. c RODO). W pamięci przeglądarki (localStorage) zapisywany jest wyłącznie losowy identyfikator zamówienia i identyfikator płatności – bez danych osobowych – aby umożliwić ponowne pobranie opłaconego pliku.</p>
+    <p><strong>Hosting.</strong> Dostawca hostingu może rejestrować techniczne dane połączeń (np. adres IP, czas żądania) w celu zapewnienia bezpieczeństwa serwisu (art. 6 ust. 1 lit. f RODO).</p>
+    <p><strong>Linki partnerskie.</strong> Po kliknięciu linku partnera przechodzisz na jego stronę; partner przetwarza dane na podstawie własnej polityki prywatności.</p>
+    <p><strong>Twoje prawa.</strong> Przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia, sprzeciwu oraz skargi do Prezesa Urzędu Ochrony Danych Osobowych.</p>
+    <p class="text-xs text-slate-400">Wzór polityki – zaktualizuj ją, jeśli dodasz analitykę, piksele reklamowe lub newsletter.</p>
+  </div>
+</dialog>
+
+<div id="toast" class="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-xl bg-slate-900 px-4 py-3 text-sm text-white shadow-xl" role="status" hidden></div>
+
+<script src="assets/config.js" defer></script>
+<script src="vendor/pdfmake-0.2.23.min.js" defer></script>
+<script src="vendor/vfs_fonts-0.2.23.js" defer></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
